@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="Simulation concrète des trois métiers du vélo post-croissance : éco-client, réparateur agent de la durabilité et perma-fabricant. Document de travail ouvert à discussion.">
+<title>Pignon Commun</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,600;0,700;0,800;1,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #E9E6DA;
+    --paper-2: #DDD9C7;
+    --paper-3: #D2CDB7;
+    --ink: #1E2620;
+    --ink-soft: #4C5448;
+    --ink-faint: #767E70;
+    --green: #3E6B52;
+    --green-soft: #587D68;
+    --brass: #9C6A2C;
+    --line: #C6C1AA;
+    --line-strong: #A9A38A;
+    --font-display: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+    --font-body: 'IBM Plex Sans', 'Segoe UI', system-ui, sans-serif;
+    --font-mono: 'IBM Plex Mono', 'SFMono-Regular', Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper: #161C18;
+      --paper-2: #1E241F;
+      --paper-3: #262D26;
+      --ink: #E8E5D8;
+      --ink-soft: #ACB3A3;
+      --ink-faint: #7C8578;
+      --green: #6FB98D;
+      --green-soft: #59A176;
+      --brass: #D9A45C;
+      --line: #333B34;
+      --line-strong: #47503F;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper: #161C18;
+    --paper-2: #1E241F;
+    --paper-3: #262D26;
+    --ink: #E8E5D8;
+    --ink-soft: #ACB3A3;
+    --ink-faint: #7C8578;
+    --green: #6FB98D;
+    --green-soft: #59A176;
+    --brass: #D9A45C;
+    --line: #333B34;
+    --line-strong: #47503F;
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.55;
+    padding-inline: 20px;
+  }
+  a{ color: var(--green); }
+  .wrap{ max-width: 780px; margin: 0 auto; }
+  .wrap-wide{ max-width: 980px; margin: 0 auto; }
+
+  .eyebrow{
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--green);
+  }
+  h1,h2,h3{
+    font-family: var(--font-display);
+    font-weight: 800;
+    text-wrap: balance;
+    margin: 0;
+    color: var(--ink);
+  }
+  p{ margin: 0; }
+
+  /* ---------- Header / hero ---------- */
+  header.hero{
+    padding-block: 56px 44px;
+    border-bottom: 1px solid var(--line);
+  }
+  .mark{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom: 34px;
+  }
+  .mark svg{ width:34px; height:34px; flex:none; }
+  .mark span{
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+  h1.title{
+    font-size: clamp(2.2rem, 6vw, 3.4rem);
+    line-height: 1.03;
+    letter-spacing: -0.01em;
+  }
+  h1.title em{
+    font-style: normal;
+    color: var(--green);
+  }
+  .subtitle{
+    font-size: 1.1rem;
+    color: var(--ink-soft);
+    max-width: 46ch;
+    margin-top: 18px;
+  }
+
+  /* ---------- argument (constats) ---------- */
+  .argument{
+    display:flex;
+    flex-direction: column;
+    gap: 34px;
+    margin-top: 32px;
+  }
+  .arg-item{
+    display:grid;
+    grid-template-columns: 60px 1fr;
+    gap: 18px;
+  }
+  @media (max-width: 560px){ .arg-item{ grid-template-columns: 38px 1fr; } }
+  .arg-num{
+    font-family: var(--font-mono);
+    font-size: 1.9rem;
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--ink-faint);
+  }
+  .arg-item.is-response .arg-num{ color: var(--green); }
+  .arg-item h3{
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .arg-item p{
+    color: var(--ink-soft);
+    max-width: 60ch;
+    font-size: 0.98rem;
+  }
+
+  .manifesto-section{ padding-block: 44px; border-bottom: 1px solid var(--line); }
+  .manifesto{
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(1.5rem, 4.6vw, 2.4rem);
+    line-height: 1.16;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+    color: var(--ink);
+  }
+  .manifesto span{ color: var(--green); }
+
+  /* ---------- data table ---------- */
+  .table-wrap{ overflow-x: auto; margin-top: 16px; }
+  .data-table{ width:100%; border-collapse:collapse; font-size:0.88rem; min-width: 480px; }
+  .data-table th, .data-table td{ text-align:left; padding:9px 12px; border-bottom:1px solid var(--line); vertical-align:top; }
+  .data-table th{ font-family:var(--font-mono); font-size:11px; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-faint); font-weight:500; }
+  .data-table td{ color:var(--ink-soft); }
+  .data-table td.delta{ color: var(--brass); font-family:var(--font-mono); font-weight:600; white-space:nowrap; }
+  .data-table tr.total td{ font-weight:600; color:var(--ink); border-top:1px solid var(--line-strong); border-bottom:none; }
+  .data-table td.num{ font-family:var(--font-mono); white-space:nowrap; }
+  .section-note{ margin-top:18px; font-size:0.85rem; color:var(--ink-faint); }
+
+  /* ---------- formula ---------- */
+  .formula{ margin-top:18px; display:flex; flex-direction:column; }
+  .f-row{ display:flex; justify-content:space-between; align-items:baseline; gap:16px; padding:11px 0; border-bottom:1px solid var(--line); }
+  .f-row .f-label{ font-family:var(--font-mono); font-size:0.9rem; font-weight:600; color:var(--ink); flex:none; min-width:190px; }
+  .f-row .f-desc{ font-size:0.85rem; color:var(--ink-faint); text-align:right; max-width:32ch; }
+  .f-op{ text-align:center; font-family:var(--font-mono); color:var(--ink-faint); font-size:0.85rem; padding:2px 0; }
+  .f-row.f-total{ border-bottom:none; border-top:1px solid var(--line-strong); margin-top:2px; padding-top:15px; }
+  .f-row.f-total .f-label{ color:var(--green); }
+  @media (max-width:560px){
+    .f-row{ flex-direction:column; align-items:flex-start; gap:4px; }
+    .f-row .f-desc{ text-align:left; max-width:100%; }
+  }
+
+  /* ---------- scenario list ---------- */
+  .scenario{ border-left:2px solid var(--ink-faint); padding-left:12px; margin-bottom:16px; }
+  .scenario:last-child{ margin-bottom:0; }
+  .scenario .s-title{ font-weight:600; font-size:0.95rem; color:var(--ink); display:block; margin-bottom:3px; }
+  .scenario .s-desc{ font-size:0.87rem; color:var(--ink-soft); }
+
+  /* ---------- risk register ---------- */
+  .risk-list{ display:flex; flex-direction:column; gap:16px; margin-top:30px; }
+  .risk{
+    border: 1px solid var(--line);
+    background: var(--paper-2);
+    border-radius: 4px;
+    padding: 20px 22px;
+  }
+  .risk-title{
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.04rem;
+    margin-bottom: 9px;
+  }
+  .risk-desc{ font-size: 0.9rem; color: var(--ink-soft); }
+  .risk-answer{
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px dashed var(--line-strong);
+  }
+  .ra-label{
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--green);
+    display: block;
+    margin-bottom: 6px;
+  }
+  .risk-answer p{ color: var(--ink); font-size: 0.92rem; }
+  .hero-figures{
+    display:flex;
+    gap: 28px;
+    margin-top: 36px;
+    flex-wrap: wrap;
+  }
+  .figure{
+    font-family: var(--font-mono);
+  }
+  .figure .num{
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--brass);
+    display:block;
+  }
+  .figure .cap{
+    font-size: 12px;
+    color: var(--ink-faint);
+  }
+
+  /* ---------- generic section ---------- */
+  section{ padding-block: 52px; border-bottom: 1px solid var(--line); }
+  section:last-of-type{ border-bottom: none; }
+  section > .eyebrow{ display:block; margin-bottom: 10px; }
+  section h2{
+    font-size: clamp(1.5rem, 3.4vw, 2rem);
+    margin-bottom: 16px;
+  }
+  section .lede{
+    color: var(--ink-soft);
+    max-width: 62ch;
+    font-size: 1.02rem;
+  }
+
+  /* ---------- diagram ---------- */
+  .diagram-scroll{
+    overflow-x: auto;
+    margin-top: 34px;
+    padding-bottom: 6px;
+  }
+  .diagram-scroll svg{
+    display:block;
+    width: 100%;
+    min-width: 640px;
+    height: auto;
+  }
+  .diagram-caption{
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--ink-faint);
+    margin-top: 10px;
+  }
+
+  /* ---------- college cards ---------- */
+  .colleges{
+    display:flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-top: 8px;
+  }
+  .college{
+    background: var(--paper-2);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 28px 26px;
+  }
+  .college-head{
+    display:flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 16px;
+    margin-bottom: 18px;
+  }
+  .college-head .eyebrow{ margin-bottom: 6px; }
+  .college-head h3{ font-size: 1.5rem; }
+  .college-role{
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--ink-faint);
+    text-align: right;
+  }
+  .college-persona{
+    font-size: 0.98rem;
+    color: var(--ink-soft);
+    margin-bottom: 20px;
+    max-width: 58ch;
+  }
+  .college-persona strong{ color: var(--ink); font-weight: 600; }
+
+  .spec-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  .spec{
+    border-left: 2px solid var(--green);
+    padding-left: 12px;
+  }
+  .spec .v{
+    font-family: var(--font-mono);
+    font-size: 1.05rem;
+    color: var(--ink);
+    display:block;
+    font-weight: 600;
+  }
+  .spec .k{
+    font-size: 12px;
+    color: var(--ink-faint);
+  }
+
+  .two-col{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+  }
+  @media (max-width: 620px){ .two-col{ grid-template-columns: 1fr; } }
+  .col-label{
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 8px;
+    display:block;
+  }
+  ul.plain{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display:flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  ul.plain li{
+    font-size: 0.94rem;
+    color: var(--ink-soft);
+    padding-left: 14px;
+    position: relative;
+  }
+  ul.plain li::before{
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--ink-faint);
+  }
+  .badge-illustratif{
+    display:inline-block;
+    margin-top: 18px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--brass);
+    border: 1px solid var(--brass);
+    border-radius: 3px;
+    padding: 3px 8px;
+  }
+
+  /* ---------- timeline ---------- */
+  .timeline{
+    margin-top: 30px;
+    display:flex;
+    flex-direction: column;
+  }
+  .tl-item{
+    display:grid;
+    grid-template-columns: 92px 20px 1fr;
+    column-gap: 4px;
+  }
+  .tl-item .tl-date{
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    padding-top: 3px;
+    text-align: right;
+    padding-right: 14px;
+  }
+  .tl-rail{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .tl-dot{
+    width: 9px; height:9px; border-radius:50%;
+    background: var(--green);
+    margin-top: 6px;
+    flex: none;
+  }
+  .tl-line{
+    width: 1px;
+    flex: 1;
+    background: var(--line-strong);
+  }
+  .tl-item:last-child .tl-line{ display:none; }
+  .tl-body{
+    padding-bottom: 26px;
+  }
+  .tl-body h4{
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.98rem;
+    margin: 0 0 4px;
+    color: var(--ink);
+  }
+  .tl-body p{
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+  }
+  .tl-tag{
+    display:inline-block;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 1px 6px;
+    border-radius: 3px;
+    margin-left: 8px;
+    position: relative;
+    top: -1px;
+  }
+  .tag-client{ background: color-mix(in srgb, var(--green) 18%, transparent); color: var(--green); }
+  .tag-reparateur{ background: color-mix(in srgb, var(--brass) 18%, transparent); color: var(--brass); }
+  .tag-fabricant{ background: color-mix(in srgb, var(--ink-faint) 22%, transparent); color: var(--ink-soft); }
+
+  /* ---------- closing ---------- */
+  footer{
+    padding-block: 52px 64px;
+  }
+  footer .lede{ color: var(--ink-soft); max-width: 60ch; }
+  .cta-row{
+    display:flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 22px;
+  }
+  .cta{
+    font-family: var(--font-mono);
+    font-size: 13px;
+    border: 1px solid var(--line-strong);
+    border-radius: 4px;
+    padding: 10px 16px;
+    color: var(--ink);
+  }
+  .status-note{
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px dashed var(--line-strong);
+    font-size: 0.85rem;
+    color: var(--ink-faint);
+  }
+  .status-note strong{ color: var(--ink-soft); }
+
+  /* ---------- comments ---------- */
+  .comments-section{ padding-block: 52px 64px; }
+  .repo-link{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-top:18px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--ink-soft);
+    text-decoration: none;
+    border: 1px solid var(--line-strong);
+    border-radius: 4px;
+    padding: 8px 14px;
+  }
+  .repo-link:hover{ color: var(--ink); border-color: var(--ink-faint); }
+</style>
+</head>
+<body>
+
+<header class="hero wrap">
+  <div class="mark">
+    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="12" cy="27" r="8" stroke="var(--green)" stroke-width="2.4"/>
+      <circle cx="28" cy="27" r="8" stroke="var(--green)" stroke-width="2.4"/>
+      <circle cx="20" cy="27" r="3" fill="var(--brass)"/>
+      <path d="M12 27L20 27L26 12" stroke="var(--ink)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M20 27L14 12H23" stroke="var(--ink)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span>SCIC à trois collèges — document de travail</span>
+  </div>
+  <h1 class="title">Pignon commun : payer le vélo à <em>l'usage</em>, pas à l'achat</h1>
+  <p class="subtitle">Trois métiers, un fonds commun. Simulation concrète de ce que ça change pour l'éco-client, le réparateur agent de la durabilité et le perma-fabricant.</p>
+  <div class="hero-figures">
+    <div class="figure"><span class="num">201</span><span class="cap">faillites de cyclistes en France, 2025</span></div>
+    <div class="figure"><span class="num">08 / 2026</span><span class="cap">faillite du groupe Accell</span></div>
+    <div class="figure"><span class="num">3</span><span class="cap">collèges — clients, réparateurs, fabricants</span></div>
+  </div>
+</header>
+
+<section class="wrap">
+  <span class="eyebrow">Pourquoi mutualiser</span>
+  <h2>Trois constats, un changement de logique</h2>
+
+  <div class="argument">
+    <div class="arg-item">
+      <div class="arg-num">01</div>
+      <div>
+        <h3>Une économie qui suppose une croissance continue ne peut pas durer</h3>
+        <p>Produire, vendre, remplacer, reproduire : ce cycle suppose des métaux, des terres rares pour les batteries, de l'énergie et une capacité d'absorption des déchets qui ne sont pas extensibles indéfiniment. Le vélo, pourtant présenté comme vertueux, n'échappe pas à la règle : 201 faillites en France en 2025, la chute du groupe Accell en 2026 — les symptômes d'une filière qui a vendu plus de vélos qu'elle n'a construit d'usage durable pour les faire rouler.</p>
+      </div>
+    </div>
+    <div class="arg-item">
+      <div class="arg-num">02</div>
+      <div>
+        <h3>Un fabricant payé à la vente n'a que peu d'intérêt à ce que son produit dure</h3>
+        <p>Quand le chiffre d'affaires dépend du nombre d'unités vendues, chaque vélo qui roule dix ans de plus qu'attendu est une vente qui n'a pas eu lieu. Ce n'est pas une question de mauvaise volonté individuelle, c'est une structure d'incitation : tant que le fabricant est rémunéré à l'achat, la durabilité est un coût pour lui, jamais un revenu.</p>
+      </div>
+    </div>
+    <div class="arg-item is-response">
+      <div class="arg-num">03</div>
+      <div>
+        <h3>Alors on mutualise l'effort de durabilité, on ne le laisse pas à la bonne volonté</h3>
+        <p>Si l'intérêt individuel ne suffit pas, il faut en faire un bien commun financé collectivement — une cotisation, part fixe plus part variable au kilométrage, versée par chaque client à un fonds commun. Ce fonds ne rémunère réparateurs et fabricants que sur des résultats obtenus, jamais sur des unités vendues.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap manifesto-section">
+  <p class="manifesto">On ne finance plus un produit.<br><span>On finance une garantie de durabilité.</span></p>
+</section>
+
+<section class="wrap-wide">
+  <span class="eyebrow">Le modèle</span>
+  <h2>Comment l'argent circule entre les trois collèges</h2>
+  <p class="lede">Concrètement, la cotisation du client alimente le fonds commun, qui rémunère réparateurs et fabricants selon des résultats mesurés — durée de vie, taux de réparation, kilomètres sans panne — et non selon le nombre d'actes ou de pièces vendues. Le label de durabilité, certifié par un comité technique indépendant, conditionne l'accès à ce fonds.</p>
+
+  <div class="diagram-scroll">
+    <svg viewBox="0 0 900 320" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0L10 5L0 10z" style="fill:var(--ink-faint)"/>
+        </marker>
+      </defs>
+
+      <!-- Client node -->
+      <rect x="20" y="130" width="170" height="60" rx="4" style="fill:none;stroke:var(--green);stroke-width:1.6"/>
+      <text x="105" y="155" text-anchor="middle" style="font-family:var(--font-mono);font-size:11px;letter-spacing:.05em;fill:var(--ink-faint)">COLLÈGE 1</text>
+      <text x="105" y="174" text-anchor="middle" style="font-family:var(--font-body);font-weight:600;font-size:14px;fill:var(--ink)">Éco-client</text>
+
+      <!-- Fund node (center) -->
+      <rect x="365" y="120" width="170" height="80" rx="4" style="fill:var(--paper-3);stroke:var(--line-strong);stroke-width:1.6"/>
+      <text x="450" y="150" text-anchor="middle" style="font-family:var(--font-mono);font-size:11px;letter-spacing:.05em;fill:var(--ink-faint)">FONDS COMMUN</text>
+      <text x="450" y="170" text-anchor="middle" style="font-family:var(--font-body);font-weight:600;font-size:13px;fill:var(--ink)">rémunère au résultat,</text>
+      <text x="450" y="187" text-anchor="middle" style="font-family:var(--font-body);font-weight:600;font-size:13px;fill:var(--ink)">pas au volume</text>
+
+      <!-- Réparateur node -->
+      <rect x="710" y="40" width="170" height="60" rx="4" style="fill:none;stroke:var(--brass);stroke-width:1.6"/>
+      <text x="795" y="65" text-anchor="middle" style="font-family:var(--font-mono);font-size:11px;letter-spacing:.05em;fill:var(--ink-faint)">COLLÈGE 2</text>
+      <text x="795" y="84" text-anchor="middle" style="font-family:var(--font-body);font-weight:600;font-size:14px;fill:var(--ink)">Réparateur</text>
+
+      <!-- Fabricant node -->
+      <rect x="710" y="220" width="170" height="60" rx="4" style="fill:none;stroke:var(--brass);stroke-width:1.6"/>
+      <text x="795" y="245" text-anchor="middle" style="font-family:var(--font-mono);font-size:11px;letter-spacing:.05em;fill:var(--ink-faint)">COLLÈGE 3</text>
+      <text x="795" y="264" text-anchor="middle" style="font-family:var(--font-body);font-weight:600;font-size:14px;fill:var(--ink)">Perma-fabricant</text>
+
+      <!-- Label badge -->
+      <rect x="365" y="10" width="170" height="50" rx="4" style="fill:none;stroke:var(--line-strong);stroke-width:1.2;stroke-dasharray:3 3"/>
+      <text x="450" y="30" text-anchor="middle" style="font-family:var(--font-mono);font-size:10.5px;fill:var(--ink-faint)">LABEL DE DURABILITÉ</text>
+      <text x="450" y="46" text-anchor="middle" style="font-family:var(--font-body);font-size:12px;fill:var(--ink-soft)">comité technique indépendant</text>
+
+      <!-- arrows -->
+      <line x1="190" y1="160" x2="360" y2="160" style="stroke:var(--ink-faint);stroke-width:1.6" marker-end="url(#arrow)"/>
+      <text x="275" y="150" text-anchor="middle" style="font-family:var(--font-mono);font-size:10.5px;fill:var(--ink-faint)">cotisation fixe + km</text>
+
+      <line x1="535" y1="145" x2="705" y2="80" style="stroke:var(--ink-faint);stroke-width:1.6" marker-end="url(#arrow)"/>
+      <text x="640" y="100" text-anchor="middle" style="font-family:var(--font-mono);font-size:10.5px;fill:var(--ink-faint)">socle + prime</text>
+
+      <line x1="535" y1="175" x2="705" y2="240" style="stroke:var(--ink-faint);stroke-width:1.6" marker-end="url(#arrow)"/>
+      <text x="640" y="222" text-anchor="middle" style="font-family:var(--font-mono);font-size:10.5px;fill:var(--ink-faint)">garantie + résultats</text>
+
+      <line x1="450" y1="60" x2="450" y2="118" style="stroke:var(--line-strong);stroke-width:1.2;stroke-dasharray:3 3" marker-end="url(#arrow)"/>
+      <text x="530" y="105" text-anchor="middle" style="font-family:var(--font-mono);font-size:10.5px;fill:var(--ink-faint)">conditionne l'accès</text>
+    </svg>
+  </div>
+  <p class="diagram-caption">Défiler horizontalement sur petit écran.</p>
+</section>
+
+<section class="wrap">
+  <span class="eyebrow">Approfondir le modèle</span>
+  <h2>Coûts, actuariat, scénarios : ce que le diagramme ne dit pas</h2>
+  <p class="lede">Le schéma précédent montre le sens des flux. Il ne dit rien du coût réel de fabriquer pour durer, de la façon dont la cotisation doit être calculée pour tenir ses promesses, ni de ce qui se passe concrètement pour un vélo ou un client qui entre — ou sort — du système. C'est là que le modèle doit être précisé avant tout pilote.</p>
+
+  <div class="argument">
+
+    <div class="arg-item">
+      <div class="arg-num">04</div>
+      <div>
+        <h3>Le coût réel de fabriquer pour durer</h3>
+        <p>Un vélo pensé pour durer coûte plus cher à produire qu'un vélo à cycle court — pas de manière anecdotique, sur des postes précis. Ordres de grandeur illustratifs, à vérifier avec des fabricants du pilote :</p>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>Poste</th><th>Vélo à cycle court</th><th>Vélo labellisé</th><th>Delta</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Matériaux (cadre, transmission)</td><td>standard, marge de sécurité minimale</td><td>qualité supérieure, tolérances resserrées</td><td class="delta">+ 15–25 %</td></tr>
+              <tr><td>Conception des pièces</td><td>propriétaires, non documentées</td><td>standardisées, documentées, réparables</td><td class="delta">+ R&D amortie</td></tr>
+              <tr><td>Contrôle qualité et traçabilité</td><td>contrôle par échantillonnage</td><td>traçabilité par lot, contrôle systématique</td><td class="delta">+ coût fixe/lot</td></tr>
+              <tr><td>Provision de garantie</td><td>garantie légale minimale, non provisionnée</td><td>provisionnée pour casse prématurée et défaut de série</td><td class="delta">+ trésorerie immobilisée</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="margin-top:14px">Ce delta est un coût immédiat pour le fabricant, alors que le revenu correspondant arrive étalé sur toute la durée de vie du vélo via le fonds commun. C'est le vrai point de tension du modèle : personne n'avance ce surcoût gratuitement. Trois leviers déjà identifiés dans le référentiel pour combler cet écart de trésorerie au démarrage — l'éco-organisme (dispositif BonusRépar), les OPCO, et un préfinancement des collectivités partenaires du pilote — avant que le fonds commun n'atteigne une taille suffisante pour s'autofinancer.</p>
+      </div>
+    </div>
+
+    <div class="arg-item">
+      <div class="arg-num">05</div>
+      <div>
+        <h3>La cotisation construite comme une prime actuarielle</h3>
+        <p>La cotisation n'est pas un prix fixé au flair : c'est une prime, au sens où une mutuelle ou un assureur l'entend — construite pour couvrir un coût attendu, pas pour maximiser une marge par vélo vendu.</p>
+        <div class="formula">
+          <div class="f-row"><span class="f-label">Prime pure</span><span class="f-desc">coût attendu des sinistres courants — usure, entretien préventif — pondéré par leur probabilité</span></div>
+          <div class="f-op">+</div>
+          <div class="f-row"><span class="f-label">Chargement de gestion</span><span class="f-desc">fonctionnement du fonds, du registre commun, du comité technique</span></div>
+          <div class="f-op">+</div>
+          <div class="f-row"><span class="f-label">Provision de sécurité</span><span class="f-desc">réserve pour les sinistres graves et rares — rupture de cadre, défaut de batterie</span></div>
+          <div class="f-op">+</div>
+          <div class="f-row"><span class="f-label">Prime de durabilité</span><span class="f-desc">incitation versée aux réparateurs et fabricants, plafonnée à 20 % du total</span></div>
+          <div class="f-op">=</div>
+          <div class="f-row f-total"><span class="f-label">Cotisation du client</span><span class="f-desc">part fixe + part variable au kilométrage</span></div>
+        </div>
+        <p style="margin-top:14px">Deux conditions actuarielles pour que ça tienne. D'abord la <strong>mutualisation</strong> : le calcul ne devient fiable qu'avec un pool assez large pour que la loi des grands nombres lisse les cas individuels — d'où un score forfaitaire de 50 pendant les six premiers mois du pilote, le temps de collecter assez de données de panne réelles. Ensuite la <strong>segmentation du risque</strong> : un vélo-cargo utilitaire à 46 km/semaine et un vélo de loisir occasionnel n'ont pas le même profil d'usure ; sans classes de risque distinctes, les usages intensifs sont subventionnés à leur insu par les usages légers. À trancher pendant le pilote : segmenter la tarification, ou assumer cette solidarité comme un choix.</p>
+      </div>
+    </div>
+
+    <div class="arg-item">
+      <div class="arg-num">06</div>
+      <div>
+        <h3>Comment on entre dans le système</h3>
+        <p>L'entrée n'est pas la même selon l'état du vélo au moment où il rejoint le label — c'est là que se joue l'anti-sélection, le risque que seuls des vélos déjà fragiles rejoignent le fonds juste avant une grosse casse.</p>
+        <div class="scenario">
+          <span class="s-title">Vélo neuf, via un fabricant partenaire</span>
+          <span class="s-desc">État de référence connu dès la sortie d'usine. La cotisation démarre à la livraison, sans délai de carence.</span>
+        </div>
+        <div class="scenario">
+          <span class="s-title">Vélo déjà possédé, qui rejoint le label</span>
+          <span class="s-desc">Diagnostic d'entrée obligatoire — une fiche d'état des lieux datée, comme un état des lieux locatif — pour fixer une ligne de base. Délai de carence de quelques mois avant que les casses non détectées à l'entrée soient couvertes.</span>
+        </div>
+        <div class="scenario">
+          <span class="s-title">Occasion reconditionnée, via le réseau</span>
+          <span class="s-desc">Entre avec son historique : pièces déjà tracées au registre commun, état déjà audité par un réparateur certifié. Pas de carence, l'état est déjà connu.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="arg-item">
+      <div class="arg-num">07</div>
+      <div>
+        <h3>Durée d'engagement et sortie</h3>
+        <div class="two-col" style="margin-top:16px">
+          <div>
+            <span class="col-label">Pendant l'engagement</span>
+            <ul class="plain">
+              <li>Durée minimale à fixer en pilote (12 à 24 mois pressenti), pour amortir les coûts fixes d'entrée — diagnostic, forfait de suivi</li>
+              <li>La part fixe finance le suivi rendu, pas un capital qui s'accumule pour le client</li>
+              <li>La part variable continue de suivre le kilométrage réel, mois par mois</li>
+            </ul>
+          </div>
+          <div>
+            <span class="col-label">À la sortie</span>
+            <ul class="plain">
+              <li>Pas de remboursement de la part fixe déjà versée, comme pour une cotisation d'assurance</li>
+              <li>Portabilité à la revente : si l'acheteur reste dans le label, l'historique et la garantie suivent le vélo, pas le propriétaire</li>
+              <li>Bilan de fin de vie utile : réintégration des pièces valides au stock commun, le score de l'atelier garde la trace de la durée totale atteinte</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="arg-item">
+      <div class="arg-num">08</div>
+      <div>
+        <h3>Le capteur kilométrique : la donnée dont tout dépend</h3>
+        <p>Trois mécanismes du modèle reposent sur un seul chiffre : le kilométrage cumulé et daté du vélo. La part variable de la cotisation en dépend, l'indicateur « kilomètres sans panne majeure » du score de durabilité en dépend — c'est le poids le plus lourd des quatre, 35 % du score — et le déclenchement du calendrier d'entretien préventif en dépend aussi. Si cette donnée est fausse, tout le reste du modèle calcule juste, mais sur une base fausse.</p>
+        <div class="two-col" style="margin-top:16px">
+          <div>
+            <span class="col-label">Ce que le capteur doit garantir</span>
+            <ul class="plain">
+              <li>Une mesure continue, pas déclarative — le compteur du vélo électrique existe déjà chez la plupart des fabricants, à étendre aux vélos mécaniques</li>
+              <li>Une remontée périodique au registre commun, standardisée entre fabricants pour rester lisible d'un atelier à l'autre</li>
+              <li>Le cumul de kilomètres seul, sans stockage des trajets ni de la localisation — le principe RGPD déjà posé dans le référentiel</li>
+            </ul>
+          </div>
+          <div>
+            <span class="col-label">Ce qui n'est pas encore résolu</span>
+            <ul class="plain">
+              <li>Comment rendre la donnée difficile à trafiquer sans transformer chaque vélo en objet surveillé</li>
+              <li>Que faire d'un capteur en panne, débranché ou remplacé — vide technique et contractuel</li>
+              <li>Qui finance l'équipement des vélos mécaniques, qui n'ont aujourd'hui aucun compteur natif</li>
+            </ul>
+          </div>
+        </div>
+
+        <p style="margin-top:20px">Un vélo mécanique n'a par défaut ni batterie ni électronique embarquée — c'est le cas concret le plus exigeant. Quatre familles de solutions existent, évaluées ici sur leur résistance à la fraude, pas seulement sur leur coût :</p>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>Solution</th><th>Alimentation</th><th>Coût indicatif</th><th>Résistance à la fraude</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Capteur filaire classique (aimant + ergot)</td><td>Pile remplaçable par l'usager</td><td>10–20 €</td><td>Faible seule — facile à démonter ou à intervertir entre deux vélos</td></tr>
+              <tr><td>Capteur Bluetooth standardisé (norme CSC)</td><td>Pile scellée, remplacée en atelier</td><td>15–30 €</td><td>Bonne si scellé et apparié au numéro de cadre</td></tr>
+              <tr><td>Moyeu dynamo à compteur intégré</td><td>Aucune — auto-alimenté par le pédalage</td><td>60–150 €</td><td>La meilleure — rien à recharger, intégré au moyeu</td></tr>
+              <tr><td>Compteur mécanique à cliquet</td><td>Aucune, purement mécanique</td><td>5–10 €</td><td>Faible — relevé et remise à zéro manuels</td></tr>
+              <tr><td>Application smartphone</td><td>Le téléphone du client</td><td>Nul en matériel</td><td>La plus faible — il suffit de ne pas l'ouvrir</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="margin-top:14px"><strong>Recommandation</strong> : le capteur Bluetooth scellé comme socle pour tout le parc — peu coûteux, standardisé, réparable en atelier — avec son numéro de série apparié à celui du cadre dans le registre commun dès le diagnostic d'entrée : tout capteur qui resynchronise sous une autre identité de vélo déclenche un signalement automatique, sans qu'un humain ait besoin de le repérer. Le moyeu dynamo, plus coûteux, se justifie surtout pour les vélos-cargos et utilitaires du label, déjà souvent équipés d'un moyeu pour l'éclairage — et cohérent avec l'esprit du projet : pas de pile jetable de plus sur un vélo pensé pour durer. Le compteur mécanique et l'application smartphone sont écartés : le premier ne résout rien à la fraude, la seconde recrée exactement le risque que le principe RGPD du modèle interdit déjà.</p>
+
+        <p style="margin-top:22px">Reste à choisir <em>comment</em> sceller ce capteur — le rendre difficile à ouvrir sans que ça se voie, sans pour autant empêcher le geste le plus banal de sa vie : changer la pile.</p>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>Scellement</th><th>Coût</th><th>Résistance</th><th>Vérifiable d'un coup d'œil</th><th>Compatible pile remplaçable</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Étiquette adhésive « VOID »</td><td>0,05–0,20 €</td><td>Dissuasive — retirable avec un outillage patient</td><td>Oui, motif reconnaissable</td><td>Non — se déchire à chaque ouverture, doit être reposée</td></tr>
+              <tr><td>Scellé plastique numéroté <span style="color:var(--ink-faint)">(type compteur EDF/GRDF)</span></td><td>0,20–0,50 €</td><td>Bonne — coupe visible et irréversible</td><td>Oui, numéro à recopier</td><td>Oui — nouveau numéro à chaque ouverture, capteur intact</td></tr>
+              <tr><td>Vis de sécurité à empreinte spéciale</td><td>0,50–2 €</td><td>Dissuasive — bloque l'ouverture occasionnelle</td><td>Non, il faut ouvrir pour vérifier</td><td>Oui, mais ouverture plus lente en atelier</td></tr>
+              <tr><td>Encapsulation résine (potting)</td><td>2–5 €</td><td>La plus résistante — casse le capteur à l'ouverture</td><td>Oui, résine visible</td><td>Non — toute ouverture détruit l'unité entière</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="margin-top:14px"><strong>Recommandation</strong> : le scellé plastique numéroté, sur le modèle exact du plomb posé par Enedis ou GRDF sur un compteur — un objet que toute la filière connaît déjà, y compris juridiquement, puisque le « bris de plomb » y est une infraction identifiée. Il coûte presque rien, se lit sans outil en une seconde à chaque visite, et surtout n'oblige pas à détruire le capteur pour changer sa pile : chaque ouverture pose un nouveau numéro, tracé au registre. La résine époxy, pourtant la plus inviolable, est écartée pour la raison inverse de celle qui l'a fait choisir ailleurs : rendre un capteur irréparable pour le protéger serait exactement la contradiction que le modèle entier essaie d'éviter. Et l'essentiel ne tient pas au scellé lui-même mais à la règle qui va avec : un scellé rompu doit toujours correspondre à une visite loggée au registre — c'est l'absence de correspondance qui signale la fraude, pas la rupture en soi.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="wrap-wide">
+  <span class="eyebrow">Passer à l'échelle</span>
+  <h2>Une simulation chiffrée : 2 000 vélos, 40 ateliers, 8 fabricants</h2>
+  <p class="lede">Les blocs précédents posent la logique. En voici une application chiffrée à une échelle dix fois supérieure à l'exemple isolé du référentiel — de quoi vérifier si les nombres tiennent une fois qu'on multiplie les acteurs, pas seulement dans un atelier.</p>
+
+  <div class="spec-grid" style="margin-top:26px">
+    <div class="spec"><span class="v">2 000 vélos</span><span class="k">1 200 usage léger (60 %) · 800 usage intensif (40 %)</span></div>
+    <div class="spec"><span class="v">40 ateliers</span><span class="k">50 vélos suivis chacun, comme l'exemple du référentiel</span></div>
+    <div class="spec"><span class="v">8 fabricants</span><span class="k">≈ 250 vélos équipés en moyenne par fabricant</span></div>
+    <div class="spec"><span class="v">75 / 100</span><span class="k">score de durabilité moyen du réseau, illustratif</span></div>
+  </div>
+  <p class="section-note">Kilométrages sourcés, pas inventés : 2 800 km/an pour un usage léger, à partir d'une distance domicile-travail de 6 à 13 km selon les études (<a href="https://mobilites-durables.transports.gouv.fr/indicateurs/details/distance-moyenne-dom-trav/methodo/" target="_blank" rel="noopener">ministère de la Transition écologique</a>, <a href="https://www.fub.fr/velo-ville/villes-qui-aiment-velo/velo-france-etat-lieux" target="_blank" rel="noopener">FUB</a>) parcourue sur environ 200 jours de pratique réelle par an ; 5 500 km/an pour un usage intensif, à partir des 24 km parcourus en moyenne par jour de tournée par les flottes professionnelles de vélos-cargos (<a href="https://strategieslogistique.com/Les-boites-a-velo-dressent-un,14693" target="_blank" rel="noopener">Observatoire des Boîtes à Vélo, 2024</a>). Le reste des hypothèses ci-dessous — coûts de fabrication, sinistralité, score moyen — reste illustratif.</p>
+
+  <h3 style="font-family:var(--font-display);font-size:1.1rem;margin-top:36px;margin-bottom:6px">Construire la cotisation, catégorie par catégorie</h3>
+  <p class="lede" style="font-size:0.92rem">Chaque ligne applique une formule déjà posée (blocs 04 et 05) — rien n'est ajouté qui ne soit déjà dans le modèle, seulement chiffré.</p>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead><tr><th>Poste</th><th>Léger — 2 800 km/an</th><th>Intensif — 5 500 km/an</th></tr></thead>
+      <tbody>
+        <tr><td>Forfait de suivi</td><td class="num">120 €</td><td class="num">120 €</td></tr>
+        <tr><td>Main d'œuvre attendue</td><td class="num">3,3 h → 155 €</td><td class="num">6,4 h → 301 €</td></tr>
+        <tr><td>Prime de durabilité réparateur</td><td class="num">52 €</td><td class="num">79 €</td></tr>
+        <tr><td>Rente d'usage fabricant</td><td class="num">44 €</td><td class="num">146 €</td></tr>
+        <tr><td>Prime de durabilité fabricant</td><td class="num">7 €</td><td class="num">25 €</td></tr>
+        <tr><td>Chargement de gestion (6 %) + provision de sécurité (8 %)</td><td class="num">+ 53 €</td><td class="num">+ 94 €</td></tr>
+        <tr class="total"><td>Cotisation annuelle</td><td class="num">431 €</td><td class="num">765 €</td></tr>
+        <tr><td>— dont part fixe / part variable</td><td class="num">120 € + 0,11 €/km</td><td class="num">120 € + 0,12 €/km</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="section-note">Les deux tarifs au kilomètre finissent proches — 0,11 € et 0,12 € — malgré une main d'œuvre et une rente fabricant très différentes, parce que le forfait fixe et l'essentiel du socle pèsent proportionnellement moins sur un vélo qui roule beaucoup. Et le tarif reste bas dans l'absolu : la valeur du modèle est dans le forfait et la main d'œuvre, pas dans le prix du kilomètre — corriger l'hypothèse de kilométrage change la façon dont la cotisation se répartit, pas son montant total.</p>
+
+  <h3 style="font-family:var(--font-display);font-size:1.1rem;margin-top:40px;margin-bottom:6px">D'où vient la rente d'usage fabricant</h3>
+  <p class="lede" style="font-size:0.92rem">Le fabricant n'est pas payé à la vente : le coût qu'il avance à la fabrication (bloc 04) est amorti par le fonds sur la durée de vie garantie du vélo.</p>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead><tr><th>Vélo</th><th>Coût de fabrication, labellisé</th><th>Durée de vie garantie</th><th>Rente d'usage annuelle</th></tr></thead>
+      <tbody>
+        <tr><td>Vélo classique</td><td class="num">440 €</td><td class="num">10 ans</td><td class="num">44 €/an</td></tr>
+        <tr><td>Vélo-cargo électrique</td><td class="num">1 170 €</td><td class="num">8 ans</td><td class="num">146 €/an</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 style="font-family:var(--font-display);font-size:1.1rem;margin-top:40px;margin-bottom:6px">Le fonds commun sur un an</h3>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead><tr><th>Poste de dépense</th><th>Montant</th><th>Part du fonds</th></tr></thead>
+      <tbody>
+        <tr><td>Forfait de suivi (réparateurs)</td><td class="num">240 000 €</td><td class="num">21,3 %</td></tr>
+        <tr><td>Main d'œuvre (réparateurs)</td><td class="num">426 800 €</td><td class="num">37,8 %</td></tr>
+        <tr><td>Prime de durabilité (réparateurs)</td><td class="num">125 600 €</td><td class="num">11,1 %</td></tr>
+        <tr><td>Rente d'usage (fabricants)</td><td class="num">169 600 €</td><td class="num">15,0 %</td></tr>
+        <tr><td>Prime de durabilité (fabricants)</td><td class="num">28 400 €</td><td class="num">2,5 %</td></tr>
+        <tr><td>Chargement de gestion</td><td class="num">59 400 €</td><td class="num">5,3 %</td></tr>
+        <tr><td>Provision de sécurité</td><td class="num">79 200 €</td><td class="num">7,0 %</td></tr>
+        <tr class="total"><td>Total collecté</td><td class="num">1 129 200 €</td><td class="num">100 %</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="section-note">Pour un atelier de 50 vélos, ça représente environ 19 800 € par an de la part du fonds — un revenu d'appoint qui s'ajoute à l'activité existante d'un magasin, pas de quoi la remplacer à ce volume. C'est cohérent : le modèle est pensé pour des ateliers déjà en activité, pas pour créer 40 emplois à temps plein à partir de rien.</p>
+
+  <h3 style="font-family:var(--font-display);font-size:1.1rem;margin-top:40px;margin-bottom:6px">La provision de sécurité tient-elle la route</h3>
+  <p class="lede" style="font-size:0.92rem">Casse prématurée attendue : 1,5 % des vélos légers, 3 % des vélos intensifs, à 400 € l'événement en moyenne.</p>
+  <div class="spec-grid" style="margin-top:20px">
+    <div class="spec"><span class="v">42 sinistres/an</span><span class="k">attendus sur l'ensemble du parc — 18 léger + 24 intensif</span></div>
+    <div class="spec"><span class="v">16 800 €</span><span class="k">coût attendu, à la charge des fabricants via le fonds</span></div>
+    <div class="spec"><span class="v">≈ 61 sinistres</span><span class="k">scénario défavorable — moyenne + 3 écarts-types, en supposant une distribution proche d'une loi de Poisson</span></div>
+    <div class="spec"><span class="v">79 200 €</span><span class="k">provision de sécurité — couvre le scénario défavorable (24 400 €) plus de trois fois</span></div>
+  </div>
+  <p class="section-note">C'est l'effet concret de la mutualisation évoquée au bloc 05 : à l'échelle d'un seul atelier de 50 vélos, un mauvais trimestre peut doubler ou tripler le nombre de sinistres sans que ce soit anormal statistiquement. À 2 000 vélos, la même variation relative pèse beaucoup moins sur le fonds — c'est précisément pour ça que la taille du pool est une condition actuarielle, pas un détail d'échelle.</p>
+
+  <p class="section-note" style="margin-top:28px">Au total, cette seule simulation met environ 2 000 clients, 40 ateliers (une centaine de réparateurs certifiés tous niveaux confondus), 8 fabricants et un comité technique de quelques personnes dans une seule boucle économique de 1,13 M€ par an.</p>
+  <span class="badge-illustratif">kilométrages sourcés (vélotaf, Observatoire des Boîtes à Vélo) — coûts de fabrication et sinistralité restent illustratifs, méthode reproductible avec de vraies données de pilote</span>
+</section>
+
+<section class="wrap">
+  <span class="eyebrow">Regard critique</span>
+  <h2>Ce qui peut faire dérailler le modèle</h2>
+  <p class="lede">Un modèle qui prétend n'avoir aucune faille n'en a pas cherché. Les huit points ci-dessous sont les endroits où l'incitation peut se retourner contre l'objectif qu'elle vise, où un contrôle peut être contourné, ou où le cadre juridique n'est simplement pas encore posé. Pour chacun, une réponse plutôt qu'un dispositif à inventer : la meilleure protection est souvent celle qui existe déjà ailleurs, pas celle qu'il faudrait créer.</p>
+
+  <div class="risk-list">
+
+    <div class="risk">
+      <h3 class="risk-title">Capteur trafiqué ou retiré</h3>
+      <p class="risk-desc">Sous-déclarer le kilométrage réduit la part variable de la cotisation et gonfle artificiellement l'indicateur « kilomètres sans panne majeure ». C'est la version vélo de la fraude au compteur kilométrique, un problème bien connu de l'automobile d'occasion.</p>
+      <div class="two-col" style="margin-top:14px">
+        <div><span class="col-label">Garde-fou déjà posé</span><p class="risk-desc">Recoupement possible lors des contrôles physiques en atelier : un réparateur voit l'usure réelle des pièces et peut la comparer au kilométrage déclaré.</p></div>
+        <div><span class="col-label">Ce qui reste ouvert</span><p class="risk-desc">Aucun dispositif anti-fraude matériel n'est défini, ni de sanction précise en cas d'écart constaté — à trancher avant le pilote.</p></div>
+      </div>
+      <div class="risk-answer">
+        <span class="ra-label">Réponse simple</span>
+        <p>Un scellé physique numéroté sur le capteur, vérifié à chaque contrôle en atelier, plus une visite minimale une fois par an même si le vélo affiche peu de kilomètres. C'est exactement le principe du contrôle technique automobile, qui recoupe le kilométrage affiché à chaque passage — pas besoin d'inventer un dispositif nouveau, il suffit de le copier.</p>
+      </div>
+    </div>
+
+    <div class="risk">
+      <h3 class="risk-title">Conflit d'intérêt dans la classification des pannes</h3>
+      <p class="risk-desc">Le réparateur qui qualifie une panne d'« usure normale » (payée par le fonds, compte positivement dans son score) plutôt que de « négligence du client » (facturée au client, relation commerciale tendue) a un intérêt structurel à toujours choisir la première option, même quand ce n'est pas le bon diagnostic.</p>
+      <div class="two-col" style="margin-top:14px">
+        <div><span class="col-label">Garde-fou déjà posé</span><p class="risk-desc">Le comité technique indépendant arbitre les cas contestés à partir des données de panne et de l'historique d'entretien.</p></div>
+        <div><span class="col-label">Ce qui reste ouvert</span><p class="risk-desc">L'arbitrage ne porte que sur les cas « contestés » — encore faut-il qu'un client sache qu'il peut contester, face à un professionnel qui détient toute l'information technique.</p></div>
+      </div>
+      <div class="risk-answer">
+        <span class="ra-label">Réponse simple</span>
+        <p>Le comité technique n'a pas besoin d'attendre qu'un client conteste : il suffit de comparer le ratio « usure normale / négligence » de chaque atelier à la moyenne du réseau pour un usage comparable. Un atelier qui s'en écarte durablement est audité en priorité — un signal statistique simple, à partir de données déjà saisies au registre, plutôt qu'un système de plainte à organiser.</p>
+      </div>
+    </div>
+
+    <div class="risk">
+      <h3 class="risk-title">Spirale de sélection adverse</h3>
+      <p class="risk-desc">Sans tarification différenciée par usage, un client à usage léger paie pour le risque moyen du pool, plus élevé que son propre risque — et a intérêt à sortir. Restent surtout les usages intensifs, ce qui fait monter la cotisation moyenne et accélère le départ des usages légers restants.</p>
+      <div class="two-col" style="margin-top:14px">
+        <div><span class="col-label">Garde-fou déjà posé</span><p class="risk-desc">La segmentation du risque par type de vélo et d'usage est identifiée comme un point à trancher (bloc 05).</p></div>
+        <div><span class="col-label">Ce qui reste ouvert</span><p class="risk-desc">Rien n'impose qu'elle soit mise en place ; sans elle, le risque de spirale est réel dès que le label dépasse l'échelle du pilote.</p></div>
+      </div>
+      <div class="risk-answer">
+        <span class="ra-label">Réponse simple</span>
+        <p>Pas besoin d'un moteur de tarification sophistiqué : trois ou quatre catégories suffisent — vélo classique, vélo-cargo, vélo électrique, vélo électrique-cargo — chacune avec sa part variable au kilométrage, recalculée une fois par an sur les données réelles du parc. La segmentation la plus grossière qui évite la subvention croisée est souvent suffisante ; l'affiner attendra d'avoir assez de données.</p>
+      </div>
+    </div>
+
+    <div class="risk">
+      <h3 class="risk-title">Sous-tarification du pilote</h3>
+      <p class="risk-desc">Le score forfaitaire de 50 versé pendant les six premiers mois peut payer plus de prime que les sinistres réels ne le justifient si le parc pilote se révèle plus fragile qu'anticipé — un fonds qui démarre en déficit avant d'avoir atteint la taille qui lui permet de mutualiser correctement le risque.</p>
+      <div class="two-col" style="margin-top:14px">
+        <div><span class="col-label">Garde-fou déjà posé</span><p class="risk-desc">La phase d'étalonnage (mois 4 à 9) est explicitement dédiée à corriger les seuils avant le régime normal.</p></div>
+        <div><span class="col-label">Ce qui reste ouvert</span><p class="risk-desc">Aucune réserve de démarrage ni mécanisme de correction en cours de phase n'est prévu si le déficit apparaît avant la fin de l'étalonnage.</p></div>
+      </div>
+      <div class="risk-answer">
+        <span class="ra-label">Réponse simple</span>
+        <p>Ne verser qu'une partie de la prime au score forfaitaire pendant l'étalonnage — par exemple 70 % — et régulariser le solde une fois les seuils réels fixés, plutôt que de tout verser sur une hypothèse non vérifiée. Le principe ordinaire de l'acompte et du solde, pas un mécanisme actuariel à concevoir.</p>
+      </div>
+    </div>
+
+    <div class="risk">
+      <h3 class="risk-title">Capture du comité technique indépendant</h3>
+      <p class="risk-desc">Le comité certifie les pièces, arbitre les litiges et fixe les seuils du score — un pouvoir suffisant pour qu'un fabricant ou un réseau de réparateurs dominant ait intérêt à peser sur sa composition ou ses décisions.</p>
+      <div class="two-col" style="margin-top:14px">
+        <div><span class="col-label">Garde-fou déjà posé</span><p class="risk-desc">Déclaration obligatoire de tout lien financier avec un fabricant du fonds.</p></div>
+        <div><span class="col-label">Ce qui reste ouvert</span><p class="risk-desc">Aucune règle sur la composition du comité — rotation, quotas par collège, financement indépendant de ceux qu'il contrôle.</p></div>
+      </div>
+      <div class="risk-answer">
+        <span class="ra-label">Réponse simple</span>
+        <p>Mandats à durée fixe et non renouvelables immédiatement, un vote par collège quel que soit le poids économique de son représentant, et un budget de fonctionnement du comité prélevé sur le fonds commun lui-même plutôt que financé par un des trois collèges. Trois règles de gouvernance ordinaires, pas un dispositif de contrôle à inventer.</p>
+      </div>
+    </div>
+
+    <div class="risk">
+      <h3 class="risk-title">Éviction des petits fabricants et artisans</h3>
+      <p class="risk-desc">Le surcoût de fabrication (bloc 04) et la charge de traçabilité par lot pèsent proportionnellement plus lourd sur un petit atelier que sur un industriel — au risque de réserver le label aux acteurs qui peuvent déjà l'absorber, à l'inverse du garde-fou de concurrence ouverte affiché dans le référentiel.</p>
+      <div class="two-col" style="margin-top:14px">
+        <div><span class="col-label">Garde-fou déjà posé</span><p class="risk-desc">Le label reste ouvert à tout réparateur ou fabricant qui remplit les critères publics.</p></div>
+        <div><span class="col-label">Ce qui reste ouvert</span><p class="risk-desc">Être ouvert en droit n'est pas être accessible en pratique ; aucun mécanisme différencié n'accompagne les petites structures vers la certification.</p></div>
+      </div>
+      <div class="risk-answer">
+        <span class="ra-label">Réponse simple</span>
+        <p>Le registre commun est déjà une infrastructure partagée, pas un outil que chaque fabricant construit seul — il suffit que ça reste vrai. Et faire porter le coût de certification par une grille proportionnelle au volume produit plutôt qu'un forfait identique pour tous : un petit atelier paie alors une part de coût fixe plus faible, sans qu'il faille inventer un régime d'exception.</p>
+      </div>
+    </div>
+
+    <div class="risk">
+      <h3 class="risk-title">Passager clandestin côté réparateur</h3>
+      <p class="risk-desc">Le socle représente au moins 80 % de la rémunération et n'est jamais sujet à malus — un réparateur peut viser strictement le plancher de contrôle préventif sans jamais chercher la prime de durabilité, sans aucun risque financier.</p>
+      <div class="two-col" style="margin-top:14px">
+        <div><span class="col-label">Garde-fou déjà posé</span><p class="risk-desc">C'est un choix assumé : protéger le revenu des petits ateliers contre les aléas du score.</p></div>
+        <div><span class="col-label">Ce qui reste ouvert</span><p class="risk-desc">Reste à vérifier si ce choix laisse un vrai espace pour une qualité de service minimale mais jamais recherchée — un plancher d'heures n'est pas un plancher de résultat.</p></div>
+      </div>
+      <div class="risk-answer">
+        <span class="ra-label">Réponse simple</span>
+        <p>Garder l'absence de malus financier — c'est ce qui protège le revenu des petits ateliers — mais faire du score un critère de visibilité dans l'annuaire du label : les ateliers mieux notés apparaissent en premier auprès des nouveaux clients. Aucune sanction, juste une conséquence sur qui reçoit les nouveaux clients ; la pression vient du marché interne du label, pas d'un malus.</p>
+      </div>
+    </div>
+
+    <div class="risk">
+      <h3 class="risk-title">Requalification juridique en activité d'assurance</h3>
+      <p class="risk-desc">Une cotisation obligatoire, un fonds mutualisé, une promesse de prise en charge de sinistres futurs : structurellement, ça ressemble à une opération d'assurance, une activité réglementée qui suppose un agrément.</p>
+      <div class="two-col" style="margin-top:14px">
+        <div><span class="col-label">Garde-fou déjà posé</span><p class="risk-desc">Le montage prévu est une SCIC, pas un assureur — point déjà identifié comme à valider avec un juriste dans le référentiel.</p></div>
+        <div><span class="col-label">Ce qui reste ouvert</span><p class="risk-desc">Tant que ce point n'est pas tranché avec un juriste spécialisé, c'est le risque qui peut arrêter le projet avant même le pilote.</p></div>
+      </div>
+      <div class="risk-answer">
+        <span class="ra-label">Réponse simple</span>
+        <p>Ne pas essayer de contourner le droit des assurances par la structure juridique : adosser la garantie de durabilité à un assureur ou une mutuelle déjà agréés, comme le font déjà les garanties panne mécanique vendues dans l'automobile ou l'électroménager. La SCIC garde la main sur le label, le registre et la gouvernance ; l'assureur partenaire porte le risque financier réglementé. La solution la plus simple parce qu'elle est déjà éprouvée ailleurs, pas à inventer.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="wrap-wide">
+  <span class="eyebrow">Simulation par métier</span>
+  <h2>Ce que ça change, collège par collège</h2>
+  <p class="lede">Trois fiches concrètes. Les chiffres du réparateur viennent du <a href="#">référentiel du dépôt</a> ; ceux du client et du fabricant sont construits dans la même logique, marqués illustratifs comme le reste du document de travail.</p>
+
+  <div class="colleges">
+
+    <!-- COLLÈGE 1 : CLIENT -->
+    <div class="college">
+      <div class="college-head">
+        <div>
+          <span class="eyebrow">Collège 1</span>
+          <h3>Éco-client</h3>
+        </div>
+        <div class="college-role">formé pour faire durer son vélo</div>
+      </div>
+      <p class="college-persona"><strong>Camille</strong>, vélo-cargo, livraisons de quartier, environ 90 km par semaine — proche des 24 km par jour de tournée mesurés en moyenne sur les flottes professionnelles. Inscrite au label depuis huit mois.</p>
+
+      <div class="spec-grid">
+        <div class="spec"><span class="v">10 €/mois</span><span class="k">part fixe — structure, réseau, stock de pièces</span></div>
+        <div class="spec"><span class="v">+ €/km</span><span class="k">part variable — indexée sur l'usure réelle</span></div>
+        <div class="spec"><span class="v">42 €/mois</span><span class="k">coût moyen tout compris hors pièces, sur la base de l'atelier de 50 vélos-cargos du référentiel</span></div>
+      </div>
+
+      <div class="two-col">
+        <div>
+          <span class="col-label">Ce que Camille s'engage à faire</span>
+          <ul class="plain">
+            <li>Accepter les contrôles préventifs planifiés au kilométrage</li>
+            <li>Signaler tout bruit, jeu ou perte d'autonomie sans attendre la panne</li>
+            <li>Ne pas refuser un entretien préventif recommandé après alerte</li>
+          </ul>
+        </div>
+        <div>
+          <span class="col-label">Ce que Camille reçoit</span>
+          <ul class="plain">
+            <li>Historique pièce par pièce dans le registre commun</li>
+            <li>Garantie du label sur toute casse prématurée imputable à une pièce</li>
+            <li>Conseil d'usage adapté à sa flotte, pas un devis à chaque visite</li>
+          </ul>
+        </div>
+      </div>
+      <span class="badge-illustratif">tarifs illustratifs — référentiel réparateur</span>
+    </div>
+
+    <!-- COLLÈGE 2 : RÉPARATEUR -->
+    <div class="college">
+      <div class="college-head">
+        <div>
+          <span class="eyebrow">Collège 2</span>
+          <h3>Réparateur, agent de la durabilité</h3>
+        </div>
+        <div class="college-role">rémunéré pour la durée de vie obtenue</div>
+      </div>
+      <p class="college-persona"><strong>Atelier de Malik</strong>, N2 référent durabilité, suit 50 vélos-cargos dont celui de Camille. Score de durabilité du trimestre : 80/100.</p>
+
+      <div class="spec-grid">
+        <div class="spec"><span class="v">42 / 52 / 62 €</span><span class="k">heure d'intervention — N1 / N2 / N3</span></div>
+        <div class="spec"><span class="v">≥ 80 %</span><span class="k">part du socle dans la rémunération totale</span></div>
+        <div class="spec"><span class="v">jusqu'à 20 %</span><span class="k">prime de durabilité, plafonnée</span></div>
+        <div class="spec"><span class="v">6 312 €</span><span class="k">trimestre type — 50 vélos, score 80/100</span></div>
+      </div>
+
+      <div class="two-col">
+        <div>
+          <span class="col-label">Ses six missions</span>
+          <ul class="plain">
+            <li>Diagnostic préventif avant la panne</li>
+            <li>Réparation plutôt que remplacement quand c'est sûr</li>
+            <li>Remise à neuf des pièces reprises</li>
+            <li>Conseil d'usage et traçabilité au registre</li>
+            <li>Sécurité — refus de remise en service non négociable</li>
+          </ul>
+        </div>
+        <div>
+          <span class="col-label">Ce qui protège son revenu</span>
+          <ul class="plain">
+            <li>Aucun malus sur le socle, quel que soit le score</li>
+            <li>Un refus pour raison de sécurité n'est jamais sanctionné</li>
+            <li>Casse accidentelle, sinistre ou négligence client neutralisés — hors de son score</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- COLLÈGE 3 : FABRICANT -->
+    <div class="college">
+      <div class="college-head">
+        <div>
+          <span class="eyebrow">Collège 3</span>
+          <h3>Perma-fabricant</h3>
+        </div>
+        <div class="college-role">fabrique pour la durée de vie, pas pour le volume</div>
+      </div>
+      <p class="college-persona"><strong>Atelier-manufacture</strong> qui fournit les cadres et moteurs des vélos-cargos du label, dont celui de Camille. Rémunéré sur les résultats mesurés du parc qu'il équipe, pas sur le nombre d'unités livrées.</p>
+
+      <div class="spec-grid">
+        <div class="spec"><span class="v">100 %</span><span class="k">prise en charge d'une casse prématurée sous garantie du label</span></div>
+        <div class="spec"><span class="v">0 €</span><span class="k">marge sur les pièces neuves refacturées au client</span></div>
+        <div class="spec"><span class="v">remboursement intégral</span><span class="k">en cas de défaut de série constaté sur un lot</span></div>
+      </div>
+
+      <div class="two-col">
+        <div>
+          <span class="col-label">Ce qu'il garantit</span>
+          <ul class="plain">
+            <li>Une durée de vie minimale par famille de pièces, fixée avec le comité technique</li>
+            <li>Des pièces standardisées et documentées, pensées pour la réparation</li>
+            <li>Une traçabilité par lot, pour isoler un défaut de série avant qu'il ne se répète</li>
+          </ul>
+        </div>
+        <div>
+          <span class="col-label">Comment il est payé</span>
+          <ul class="plain">
+            <li>Un socle lié au parc qu'il équipe, pas à la quantité vendue</li>
+            <li>Une part variable indexée sur la durée de vie réelle et le taux de casse prématurée</li>
+            <li>Un audit de lot déclenché automatiquement en cas de défaut répété</li>
+          </ul>
+        </div>
+      </div>
+      <span class="badge-illustratif">fiche à formaliser — pas encore de référentiel fabricant dans le dépôt</span>
+    </div>
+
+  </div>
+</section>
+
+<section class="wrap">
+  <span class="eyebrow">Sur trois ans</span>
+  <h2>Un vélo-cargo, du diagnostic à la prime</h2>
+  <p class="lede">La même situation vue dans le temps, avec la nomenclature des pannes du référentiel : qui paie, et ce qui compte ou non dans le score du réparateur.</p>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-date">Mois 0</div>
+      <div class="tl-rail"><div class="tl-dot"></div><div class="tl-line"></div></div>
+      <div class="tl-body">
+        <h4>Entrée dans le label<span class="tl-tag tag-client">client</span></h4>
+        <p>Camille signe la cotisation en deux parts. Son vélo-cargo entre au registre commun avec les lots de pièces d'origine.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">Mois 8</div>
+      <div class="tl-rail"><div class="tl-dot"></div><div class="tl-line"></div></div>
+      <div class="tl-body">
+        <h4>Entretien préventif planifié<span class="tl-tag tag-reparateur">réparateur</span></h4>
+        <p>Chaîne changée avant la limite d'allongement, sur alerte du contrôle périodique. Payé par le fonds commun, tarif socle. Compte positivement dans le score de l'atelier.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">Mois 14</div>
+      <div class="tl-rail"><div class="tl-dot"></div><div class="tl-line"></div></div>
+      <div class="tl-body">
+        <h4>Casse prématurée du cadre<span class="tl-tag tag-fabricant">fabricant</span></h4>
+        <p>Rupture avant la durée de vie garantie par le label, hors mauvais usage constaté. Prise en charge par le fabricant, neutralisée pour le réparateur, audit du lot déclenché.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">Mois 20</div>
+      <div class="tl-rail"><div class="tl-dot"></div><div class="tl-line"></div></div>
+      <div class="tl-body">
+        <h4>Refus de remise en service<span class="tl-tag tag-reparateur">réparateur</span></h4>
+        <p>Freins non conformes au contrôle. Malik refuse de rendre le vélo — un choix jamais sanctionné, ni dans le score, ni dans le délai d'immobilisation.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">Mois 24</div>
+      <div class="tl-rail"><div class="tl-dot"></div></div>
+      <div class="tl-body">
+        <h4>Bilan du trimestre<span class="tl-tag tag-reparateur">réparateur</span></h4>
+        <p>Score de durabilité de l'atelier : 80/100. Le vélo de Camille totalise plus de 8 000 km sans panne majeure et reste en service.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="wrap">
+  <span class="eyebrow">Où on en est</span>
+  <h2>Un document de travail, fait pour être discuté</h2>
+  <p class="lede">Le référentiel du réparateur existe déjà dans le dépôt. Les fiches client et fabricant ci-dessus sont une première mise en cohérence, pas encore des référentiels formalisés — c'est le prochain travail si l'approche tient la route en échange.</p>
+
+  <div class="status-note">
+    <strong>Statut :</strong> taux, seuils et montants illustratifs, à caler sur des données réelles pendant une phase pilote. Document rédigé avec Claude (Anthropic) à partir d'échanges sur les modèles post-croissance et la crise du secteur du vélo.
+  </div>
+
+  <a class="repo-link" href="https://github.com/aboigues/pignon-commun" target="_blank" rel="noopener">↗ voir et proposer des modifications sur GitHub</a>
+</footer>
+
+<section class="wrap comments-section" id="echanger">
+  <span class="eyebrow">Échanger</span>
+  <h2>Un point qui ne tient pas, une faille de plus, un désaccord ?</h2>
+  <p class="lede">Les commentaires ci-dessous s'appuient sur les Discussions GitHub du dépôt — connectez-vous avec un compte GitHub pour participer.</p>
+  <script src="https://giscus.app/client.js"
+    data-repo="aboigues/pignon-commun"
+    data-repo-id="R_kgDOUkQRuw"
+    data-category="General"
+    data-category-id="DIC_kwDOUkQRu84DGG4p"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="preferred_color_scheme"
+    data-lang="fr"
+    crossorigin="anonymous"
+    async>
+  </script>
+</section>
+
+</body>
+</html>
