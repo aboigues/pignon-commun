@@ -6,7 +6,7 @@
 
 Ce référentiel qualifie le réparateur comme agent de la durabilité : il est rémunéré pour la durée de vie qu'il obtient, pas pour le nombre d'actes qu'il facture.
 
-Il s'inscrit dans une SCIC à trois collèges (clients, réparateurs, fabricants). Les clients cotisent avec une part fixe et une part variable indexée sur le kilométrage. Un fonds commun rémunère ensuite les réparateurs et les fabricants.
+Il s'inscrit dans une SCIC à trois collèges (usagers, réparateurs, fabricants). Les usagers louent leur vélo à la SCIC et cotisent avec une part fixe et une part variable indexée sur le kilométrage. Un fonds commun rémunère ensuite les réparateurs et les fabricants.
 
 Trois principes structurent le document :
 

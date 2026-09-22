@@ -10,8 +10,8 @@ Réflexion en cours sur des modèles économiques pour la filière du vélo, pen
 
 Le référentiel s'inscrit dans un modèle plus large, encore en discussion :
 
-- Une **SCIC à trois collèges** (clients, réparateurs, fabricants), sur le modèle Michelin de facturation à l'usage plutôt qu'à l'achat.
-- Une **cotisation client en deux parts** : un forfait fixe (structure, réseau, stock de pièces) et une part variable indexée sur le kilométrage (usure).
+- Une **SCIC à trois collèges** (usagers, réparateurs, fabricants), sur le modèle Michelin de facturation à l'usage plutôt qu'à l'achat : **le vélo est loué, jamais vendu** — il reste propriété de la SCIC, le client en paie l'usage et le restitue en fin d'engagement.
+- Une **cotisation de location en deux parts** : un forfait fixe (structure, réseau, stock de pièces) et une part variable indexée sur le kilométrage (usure).
 - Un **label de durabilité** sur les pièces, certifié par un comité technique indépendant, qui conditionne l'accès aux financements mutualisés.
 - Un **fonds commun** qui rémunère réparateurs et fabricants selon des résultats mesurés (durée de vie, taux de réparation, km sans panne), pas selon le volume d'actes ou de pièces vendues.
 
