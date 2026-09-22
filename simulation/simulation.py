@@ -84,6 +84,10 @@ def annuite(cout, vie, taux):
 
 
 def occupation_equilibre(p):
+    """Part du parc louée en régime courant. « occupation_tarif », quand il est fourni dans les
+    hypothèses de tarification, impose un taux plus prudent que l'équilibre."""
+    if p.get("occupation_tarif") is not None:
+        return p["occupation_tarif"]
     c, f = p["churn"], p["remplissage"]
     return f / (c + f - c * f)
 
@@ -466,7 +470,46 @@ SCENARIOS = [
      {"cout_intensif": 2800.0, "cout_leger": 600.0, "elasticite": 0.0}, {"hyp": "stress"}),
     ("S31", "Tempête sévère, tarifée à l'avance, usagers captifs", "Le pire cas connu d'avance, sans départ des usagers : le prix nécessaire.",
      {**TEMPETE_SEVERE, "elasticite": 0.0}, {"hyp": "stress"}),
+    ("S32", "Tarif prudent (80 % d'occupation), réalité conforme", "Tarif calculé en supposant 80 % du parc loué au lieu de 94 % ; la réalité suit les hypothèses de référence.",
+     {}, {"hyp": {"occupation_tarif": 0.80}}),
+    ("S33", "Tarif prudent (80 %), vacance forte", "Tarif prudent face à la vacance forte de S16.",
+     {"churn": 0.40, "remplissage": 0.50}, {"hyp": {"occupation_tarif": 0.80}}),
+    ("S34", "Tarif prudent (80 %), tempête modérée", "Tarif prudent face à la tempête modérée de S27.",
+     TEMPETE_MODEREE, {"hyp": {"occupation_tarif": 0.80}}),
+    ("S35", "Tarif prudent (80 %), pièces ×2", "Tarif prudent face aux pièces sous-estimées de S07.",
+     {"pieces_facteur": 2.0}, {"hyp": {"occupation_tarif": 0.80}}),
+    ("S36", "Tarif très prudent (70 %), tempête modérée", "Tarif calculé en supposant 70 % du parc loué, face à la tempête modérée.",
+     TEMPETE_MODEREE, {"hyp": {"occupation_tarif": 0.70}}),
 ]
+
+# Matrice « vacance prudente » : taux d'occupation retenu pour tarifer × réalité rencontrée.
+OCCUPATIONS_TARIF = {"94 % (référence)": None, "88 %": 0.88, "80 %": 0.80, "70 %": 0.70}
+REALITES_VACANCE = {
+    "Réalité conforme": {},
+    "Vacance forte (S16)": {"churn": 0.40, "remplissage": 0.50},
+    "Tempête modérée (S27)": TEMPETE_MODEREE,
+    "Pièces ×2 (S07)": {"pieces_facteur": 2.0},
+    "Main d'œuvre +40 % (S06)": {"h_facteur": 1.4},
+}
+
+
+def matrice_vacance(n_traj, seed):
+    lignes = []
+    for elasticite in (1.0, 0.0):
+        for libelle, occupation in OCCUPATIONS_TARIF.items():
+            hyp = {**BASE, "occupation_tarif": occupation}
+            tarif = tarif_location(hyp)
+            ligne = {"elasticite": elasticite, "occupation_tarif": libelle,
+                     "leger_mois": facture_annuelle(tarif, BASE, "leger") / 12,
+                     "intensif_mois": facture_annuelle(tarif, BASE, "intensif") / 12, "realites": {}}
+            for nom, surcharges in REALITES_VACANCE.items():
+                p = {**BASE, **surcharges, "elasticite": elasticite}
+                h = simuler(p, n_traj, np.random.default_rng(seed), hyp_tarif=hyp, ref_marche=BASE)
+                ind = indicateurs(h, p)
+                ligne["realites"][nom] = {"p_ruine": ind["p_ruine"], "occupation": ind["occupation_moyenne"],
+                                          "capital_requis_99": ind["capital_requis_99"]}
+            lignes.append(ligne)
+    return lignes
 
 # Plages explorées par l'analyse de sensibilité globale (tirage uniforme, hypercube latin).
 # Paramètres de structure : connus au moment de tarifer, ce ne sont pas des aléas.
@@ -593,6 +636,8 @@ def main():
     for code, titre, desc, surcharges, opts in SCENARIOS:
         p = {**BASE, **surcharges}
         hyp = p if opts.get("hyp") == "stress" else {**BASE, **{k: v for k, v in surcharges.items() if k in STRUCTURE}}
+        if isinstance(opts.get("hyp"), dict):
+            hyp = {**hyp, **opts["hyp"]}
         # Le prix jugé acceptable par les usagers reste celui des hypothèses de référence, même quand
         # la SCIC tarife sur des coûts plus élevés : le marché ne suit pas les coûts de la SCIC.
         marche = {**BASE, **{k: v for k, v in surcharges.items() if k in STRUCTURE}}
@@ -610,6 +655,9 @@ def main():
 
     sens = sensibilite(n_jeux, n_traj_jeu, args.seed + 7)
     total_traj += n_jeux * n_traj_jeu
+    n_mat = 1_000 if args.rapide else 10_000
+    vacance = matrice_vacance(n_mat, args.seed + 3)
+    total_traj += n_mat * 2 * len(OCCUPATIONS_TARIF) * len(REALITES_VACANCE)
 
     resultats = {
         "graine": args.seed, "trajectoires_simulees": total_traj, "horizon_ans": BASE["horizon"],
@@ -621,7 +669,7 @@ def main():
         "cout_attendu_par_velo": {s: dict(zip(("part_km", "part_fixe"), map(float, cout_attendu(BASE, s))))
                                   for s in SEGMENTS},
         "occupation_equilibre": occupation_equilibre(BASE),
-        "scenarios": scenarios, "sensibilite": sens,
+        "scenarios": scenarios, "sensibilite": sens, "vacance_prudente": vacance,
     }
     nom = "resultats-rapide.json" if args.rapide else "resultats.json"
     (sortie / nom).write_text(json.dumps(resultats, ensure_ascii=False, indent=1))

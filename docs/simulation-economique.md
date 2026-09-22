@@ -2,9 +2,9 @@
 
 *Dernière mise à jour : 2026-09-22*
 
-Ce document décrit la simulation économique de Pignon commun dans le modèle de location : ses hypothèses, sa méthode, les résultats de 32 scénarios et d'une analyse de sensibilité, puis ce qu'il faut en conclure avant tout pilote. Le code se trouve dans [`simulation/simulation.py`](../simulation/simulation.py) et les résultats bruts dans `simulation/resultats/resultats.json`.
+Ce document décrit la simulation économique de Pignon commun dans le modèle de location : ses hypothèses, sa méthode, les résultats de 37 scénarios, d'une analyse de sensibilité et d'un test de tarification prudente, puis ce qu'il faut en conclure avant tout pilote. Le code se trouve dans [`simulation/simulation.py`](../simulation/simulation.py) et les résultats bruts dans `simulation/resultats/resultats.json`.
 
-La campagne compte **14,4 millions de trajectoires** du fonds, chacune sur 10 ans. Tous les montants restent illustratifs : la simulation dit quelles hypothèses comptent et à partir de quand le modèle casse, pas ce que coûtera réellement le service.
+La campagne compte **16,9 millions de trajectoires** du fonds, chacune sur 10 ans. Tous les montants restent illustratifs : la simulation dit quelles hypothèses comptent et à partir de quand le modèle casse, pas ce que coûtera réellement le service.
 
 ## Ce qu'il faut retenir
 
@@ -14,6 +14,7 @@ La campagne compte **14,4 millions de trajectoires** du fonds, chacune sur 10 an
 4. **Le paramètre le plus dangereux est le coût de fabrication du vélo-cargo.** À 2 800 € au lieu de 1 170 €, il faut facturer 148 €/mois. À ce prix, les usagers partent, le parc se vide et le fonds fait faillite dans 100 % des trajectoires, même quand le tarif est juste dès le départ. Le modèle ne tient alors qu'avec des usagers captifs, comme des flottes professionnelles.
 5. **La taille du parc protège moins que prévu.** Un pilote de 200 vélos n'est pas plus fragile qu'un parc de 20 000 vélos, car les risques qui comptent (erreur de prix, inflation, main d'œuvre) touchent tout le parc en même temps et ne se mutualisent pas. C'est la révision annuelle du tarif qui protège le fonds, pas la loi des grands nombres.
 6. **Le revenu des ateliers reste stable dans presque tous les scénarios**, autour de 18 000 € par atelier pour 50 vélos la première année et de 20 500 € en régime courant, puisque le socle n'a pas de malus. Le risque est porté par le fonds, donc par les usagers.
+7. **Tarifer en supposant plus de vélos vacants protège à bas prix.** Calculer le tarif de départ sur 80 % d'occupation au lieu de 94 % ne relève les prix que de 4 à 6 %, mais divise par deux à trois le risque de faillite dans les tempêtes. Ce supplément fonctionne comme une provision de démarrage payée par les usagers, que la révision annuelle rend si la vacance ne vient pas.
 
 ## 1. Le modèle simulé
 
@@ -82,12 +83,13 @@ Chaque trajectoire suit le fonds année par année sur 10 ans :
 
 | Bloc | Trajectoires de 10 ans |
 | --- | --- |
-| 32 scénarios nommés × 20 000 trajectoires | 640 000 |
-| Recherche du tarif d'équilibre (grille puis affinage, 10 000 trajectoires par point) | environ 12,8 millions |
+| 37 scénarios nommés × 20 000 trajectoires | 740 000 |
+| Recherche du tarif d'équilibre (grille puis affinage, 10 000 trajectoires par point) | environ 14,8 millions |
 | Analyse de sensibilité : 5 000 jeux de paramètres × 200 trajectoires | 1 000 000 |
-| **Total** | **14,4 millions** |
+| Test de tarification prudente : 4 taux d'occupation × 5 réalités × 2 comportements × 10 000 trajectoires | 400 000 |
+| **Total** | **16,9 millions** |
 
-## 2. Résultats des 32 scénarios
+## 2. Résultats des 37 scénarios
 
 Sauf mention contraire, le tarif de départ est calculé avec les hypothèses de référence : chaque scénario mesure ce qui se passe quand la réalité s'en écarte. Les scénarios « tarifés à l'avance » supposent que la SCIC connaît le problème au moment de fixer le prix.
 
@@ -125,6 +127,11 @@ Sauf mention contraire, le tarif de départ est calculé avec les hypothèses de
 | S29 | Tempête modérée, tarifée à l'avance | 3,7 % | 0,0 % | 3,0 % | 137 673 € | ×1,06 | 169 | 68,6 % |
 | S30 | Coût de fabrication réaliste, usagers captifs | 0,0 % | 0,0 % | 5,8 % | 0 € | ×0,91 | 158 | 93,7 % |
 | S31 | Tempête sévère, tarifée à l'avance, usagers captifs | 24,1 % | 0,0 % | 2,4 % | 359 412 € | ×1,11 | 227 | 75,3 % |
+| S32 | Tarif prudent (80 % d'occupation), réalité conforme | 0,0 % | 0,0 % | 6,2 % | 0 € | ×0,89 | 125 | 92,8 % |
+| S33 | Tarif prudent (80 %), vacance forte | 30,6 % | 0,0 % | 1,1 % | 417 993 € | — | 177 | 56,3 % |
+| S34 | Tarif prudent (80 %), tempête modérée | 26,1 % | 1,8 % | 1,8 % | 306 858 € | ×1,13 | 168 | 69,0 % |
+| S35 | Tarif prudent (80 %), pièces ×2 | 34,0 % | 11,9 % | 1,8 % | 339 483 € | ×1,17 | 195 | 77,7 % |
+| S36 | Tarif très prudent (70 %), tempête modérée | 7,5 % | 0,0 % | 2,5 % | 186 096 € | ×1,08 | 168 | 68,9 % |
 
 Détail des tempêtes :
 
@@ -162,6 +169,36 @@ La protection vient d'abord de la **révision annuelle** du tarif. Sans elle (S0
 **Coût de fabrication (S09, S10, S30).** Si le vélo-cargo coûte 2 800 € à fabriquer au lieu de 1 170 €, le tarif juste monte à 148 €/mois. Découvert après coup (S09), l'écart ruine le fonds dès les trois premières années dans 82 % des cas. Connu dès le départ (S10), il ne sauve pas le fonds pour autant : au-dessus du prix de référence du marché, les usagers partent et l'occupation tombe à 75 %. Le modèle ne tient que si les usagers restent malgré le prix (S30), ce qui décrit des flottes professionnelles pour qui l'immobilisation coûte plus cher que la location.
 
 **Tempêtes (S27 à S31).** La tempête modérée ruine le fonds dans 63 % des cas quand elle est subie, mais seulement dans 3,7 % des cas quand elle est prévue dans le tarif (S29). La tempête sévère est fatale sans usagers captifs. Même en la connaissant d'avance et avec des usagers captifs (S31), le vélo-cargo atteint 227 €/mois en dixième année et la ruine reste de 24 %.
+
+### Tarifer avec une vacance prudente (S32 à S36)
+
+Le tarif de départ peut être calculé en supposant qu'une part plus faible du parc est louée qu'à l'équilibre (94 %). Un vélo vacant ne roule pas : il ne consomme ni main d'œuvre ni pièces. Seuls ses coûts fixes (rente, assurance, batterie, forfait réduit) sont répartis sur moins de locataires, si bien que la hausse de prix reste modeste. Le test croise quatre taux d'occupation retenus pour tarifer avec cinq réalités, chacune sur 10 000 trajectoires.
+
+**Usagers sensibles au prix (élasticité de 1)** — probabilité de ruine, et occupation réelle entre parenthèses :
+
+| Occupation supposée | Léger | Cargo | Réalité conforme | Vacance forte | Tempête modérée | Pièces ×2 | Main d'œuvre +40 % |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 94 % (référence) | 52 €/mois | 114 €/mois | 0 % (93 %) | 61 % (56 %) | 63 % (69 %) | 81 % (78 %) | 54 % (82 %) |
+| 88 % | 53 €/mois | 117 €/mois | 0 % (93 %) | 49 % (56 %) | 48 % (69 %) | 62 % (78 %) | 38 % (82 %) |
+| 80 % | 54 €/mois | 120 €/mois | 0 % (93 %) | 30 % (56 %) | 27 % (69 %) | 34 % (78 %) | 17 % (82 %) |
+| 70 % | 56 €/mois | 127 €/mois | 0 % (93 %) | 13 % (56 %) | 8 % (69 %) | 13 % (78 %) | 4 % (82 %) |
+
+**Usagers captifs (élasticité nulle)** :
+
+| Occupation supposée | Réalité conforme | Vacance forte | Tempête modérée | Pièces ×2 | Main d'œuvre +40 % |
+| --- | --- | --- | --- | --- | --- |
+| 94 % (référence) | 0 % | 4 % | 26 % | 61 % | 35 % |
+| 88 % | 0 % | 2 % | 13 % | 36 % | 21 % |
+| 80 % | 0 % | 0 % | 4 % | 10 % | 8 % |
+| 70 % | 0 % | 0 % | 1 % | 1 % | 1 % |
+
+Trois enseignements :
+
+- **Le rapport coût-protection est excellent.** Supposer 80 % d'occupation relève les prix de 4 % (léger) à 6 % (cargo) et divise par deux à trois le risque de faillite dans chaque tempête. À 70 %, les prix montent de 8 à 11 % et le risque tombe sous 15 % partout.
+- **La marge protège contre tout, pas seulement contre la vacance.** Elle agit comme une provision supplémentaire : elle couvre aussi les pièces ou la main d'œuvre sous-estimées. Si rien ne se passe mal (S32), la révision annuelle fait redescendre le tarif et le fonds retrouve le prix de référence.
+- **Elle ne remplace pas les autres parades.** Elle ne sauve pas un coût de fabrication du vélo-cargo sous-estimé de plus du double (S09, S10), et pour l'usage léger, déjà deux fois plus cher que posséder son vélo, chaque euro en plus pèse sur l'attractivité.
+
+C'est une alternative à la réserve de démarrage financée par des tiers : les usagers constituent eux-mêmes la provision. Pour être acceptée dans une SCIC, elle doit être présentée comme telle, avec un engagement de baisse si elle n'est pas consommée.
 
 ## 4. Analyse de sensibilité globale
 
@@ -224,8 +261,9 @@ Pour le vélo-cargo intensif, le tarif de référence est au niveau du coût de 
 4. **Inscrire la révision annuelle dans les statuts**, avec une clause de révision exceptionnelle au-delà de 10 % quand un coût dérive durablement (S06, S07).
 5. **Segmenter le tarif** par catégorie de vélo et d'usage dès le départ (S23).
 6. **Prévoir une réserve de démarrage d'environ 205 € par vélo**, soit 410 000 € pour 2 000 vélos. Elle couvre la tempête modérée à 99 % (S27) et le démarrage sans provision accumulée (S00). C'est ce montant qu'il faut demander aux collectivités et à l'ADEME en préfinancement.
-7. **Assurer le parc contre le vol** : l'assurance ne change presque rien à l'équilibre, mais elle transforme un risque en coût fixe prévisible.
-8. **Obtenir des fabricants une garantie de disponibilité des pièces**, par exemple un dépôt de plans et d'outillage auprès de la SCIC, pour limiter le coût d'une faillite.
+7. **Tarifer le démarrage sur 80 % d'occupation** plutôt que sur l'équilibre de 94 %, soit environ 2 € de plus par mois pour l'usage léger et 6 € pour le vélo-cargo, en l'annonçant comme une provision de démarrage que la révision annuelle rendra si elle n'est pas consommée. En parallèle, négocier avec les fabricants une rente réduite ou suspendue pour les vélos vacants.
+8. **Assurer le parc contre le vol** : l'assurance ne change presque rien à l'équilibre, mais elle transforme un risque en coût fixe prévisible.
+9. **Obtenir des fabricants une garantie de disponibilité des pièces**, par exemple un dépôt de plans et d'outillage auprès de la SCIC, pour limiter le coût d'une faillite.
 
 ## 7. Données à collecter pendant le pilote
 
@@ -255,5 +293,7 @@ Pour le vélo-cargo intensif, le tarif de référence est au niveau du coût de 
 uv run simulation/simulation.py            # campagne complète, de quelques minutes à 45 minutes selon la machine
 uv run simulation/simulation.py --rapide   # contrôle en quelques secondes, volumes réduits
 ```
+
+Une version Excel, [`simulation/simulation-economique.xlsx`](../simulation/simulation-economique.xlsx), reprend le modèle en formules : on y modifie les hypothèses et la cotisation comme la projection du fonds sur 10 ans se recalculent. Elle contient aussi les résultats des 32 scénarios et de l'analyse de sensibilité, en valeurs. Pour la régénérer après une nouvelle simulation : `uv run simulation/export_excel.py`.
 
 Les hypothèses de référence sont regroupées dans le dictionnaire `BASE`, les scénarios dans `SCENARIOS` et les plages de sensibilité dans `PLAGES`. La graine aléatoire (2026 par défaut) rend les résultats reproductibles.

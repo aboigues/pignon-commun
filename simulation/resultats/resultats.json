@@ -1,8 +1,8 @@
 {
  "graine": 2026,
- "trajectoires_simulees": 14440000,
+ "trajectoires_simulees": 16940000,
  "horizon_ans": 10,
- "duree_s": 2679.8,
+ "duree_s": 282.8,
  "tarif_reference": {
   "leger": {
    "fixe_an": 285.8029632653061,
@@ -998,6 +998,156 @@
     "leger": 72.5052272178368,
     "intensif": 170.70410149511216
    }
+  },
+  {
+   "code": "S32",
+   "titre": "Tarif prudent (80 % d'occupation), réalité conforme",
+   "description": "Tarif calculé en supposant 80 % du parc loué au lieu de 94 % ; la réalité suit les hypothèses de référence.",
+   "p_ruine": 0.0,
+   "p_ruine_3ans": 0.0,
+   "annee_ruine_mediane": null,
+   "reserve_finale_p50": 1124467.9056055525,
+   "reserve_finale_p05": 905581.1212485043,
+   "reserve_finale_p01": 801294.0228865547,
+   "resultat_annuel_moyen": 111716.98353907677,
+   "pire_annee_p01": -249461.4491147975,
+   "marge_moyenne": 0.062315405865074606,
+   "capital_requis_99": 0.0,
+   "capital_requis_par_velo": 0.0,
+   "occupation_moyenne": 0.927524485,
+   "facture_leger_mois_an1": 54.246261926344154,
+   "facture_intensif_mois_an1": 120.54577119483582,
+   "facture_leger_mois_an10_p50": 65.5015606846817,
+   "facture_intensif_mois_an10_p50": 125.11212661886685,
+   "facture_intensif_mois_an10_p95": 133.90217624333675,
+   "revenu_atelier_an1": 18260.686055840197,
+   "flux_fabricants_an1": 191532.9528378879,
+   "fonds_collecte_an1": 1765092.9836019485,
+   "tarif_equilibre_mult": 0.887,
+   "facture_mois_depart": {
+    "leger": 54.24626192634414,
+    "intensif": 120.54577119483584
+   }
+  },
+  {
+   "code": "S33",
+   "titre": "Tarif prudent (80 %), vacance forte",
+   "description": "Tarif prudent face à la vacance forte de S16.",
+   "p_ruine": 0.3055,
+   "p_ruine_3ans": 0.0004,
+   "annee_ruine_mediane": 7.0,
+   "reserve_finale_p50": 159582.164569673,
+   "reserve_finale_p05": -224960.67235084274,
+   "reserve_finale_p01": -417992.54712818563,
+   "resultat_annuel_moyen": 14043.266260479235,
+   "pire_annee_p01": -211211.74382699726,
+   "marge_moyenne": 0.010619570582893307,
+   "capital_requis_99": 417992.54712818563,
+   "capital_requis_par_velo": 208.9962735640928,
+   "occupation_moyenne": 0.5633542149999999,
+   "facture_leger_mois_an1": 54.246261926344154,
+   "facture_intensif_mois_an1": 120.54577119483582,
+   "facture_leger_mois_an10_p50": 90.75071866130213,
+   "facture_intensif_mois_an10_p50": 176.73590068976287,
+   "facture_intensif_mois_an10_p95": 206.57537023418817,
+   "revenu_atelier_an1": 14403.313132630898,
+   "flux_fabricants_an1": 191533.04565862552,
+   "fonds_collecte_an1": 1344687.2206529616,
+   "tarif_equilibre_mult": null,
+   "facture_mois_depart": {
+    "leger": 54.24626192634414,
+    "intensif": 120.54577119483584
+   }
+  },
+  {
+   "code": "S34",
+   "titre": "Tarif prudent (80 %), tempête modérée",
+   "description": "Tarif prudent face à la tempête modérée de S27.",
+   "p_ruine": 0.2608,
+   "p_ruine_3ans": 0.01795,
+   "annee_ruine_mediane": 6.0,
+   "reserve_finale_p50": 305501.1459553563,
+   "reserve_finale_p05": -88836.7695426729,
+   "reserve_finale_p01": -283775.72328494606,
+   "resultat_annuel_moyen": 28427.67399563236,
+   "pire_annee_p01": -266129.23253657937,
+   "marge_moyenne": 0.017986785875673848,
+   "capital_requis_99": 306858.0033952013,
+   "capital_requis_par_velo": 153.42900169760065,
+   "occupation_moyenne": 0.689873085,
+   "facture_leger_mois_an1": 54.246261926344154,
+   "facture_intensif_mois_an1": 120.54577119483582,
+   "facture_leger_mois_an10_p50": 91.47334726955614,
+   "facture_intensif_mois_an10_p50": 168.07125175688367,
+   "facture_intensif_mois_an10_p95": 192.3292093068527,
+   "revenu_atelier_an1": 19076.226203023925,
+   "flux_fabricants_an1": 190611.33072892524,
+   "fonds_collecte_an1": 1586470.0449573828,
+   "tarif_equilibre_mult": 1.134,
+   "facture_mois_depart": {
+    "leger": 54.24626192634414,
+    "intensif": 120.54577119483584
+   }
+  },
+  {
+   "code": "S35",
+   "titre": "Tarif prudent (80 %), pièces ×2",
+   "description": "Tarif prudent face aux pièces sous-estimées de S07.",
+   "p_ruine": 0.3397,
+   "p_ruine_3ans": 0.1194,
+   "annee_ruine_mediane": 5.0,
+   "reserve_finale_p50": 360386.9961376786,
+   "reserve_finale_p05": -128455.49306455124,
+   "reserve_finale_p01": -333377.0153108109,
+   "resultat_annuel_moyen": 32379.933533653908,
+   "pire_annee_p01": -237826.7518775271,
+   "marge_moyenne": 0.017814194673753433,
+   "capital_requis_99": 339483.46792256983,
+   "capital_requis_par_velo": 169.74173396128492,
+   "occupation_moyenne": 0.7772326399999999,
+   "facture_leger_mois_an1": 54.246261926344154,
+   "facture_intensif_mois_an1": 120.54577119483582,
+   "facture_leger_mois_an10_p50": 79.99035239843562,
+   "facture_intensif_mois_an10_p50": 195.2848167811832,
+   "facture_intensif_mois_an10_p95": 243.765085312353,
+   "revenu_atelier_an1": 18260.686055840197,
+   "flux_fabricants_an1": 191532.9528378879,
+   "fonds_collecte_an1": 1765092.9836019485,
+   "tarif_equilibre_mult": 1.173,
+   "facture_mois_depart": {
+    "leger": 54.24626192634414,
+    "intensif": 120.54577119483584
+   }
+  },
+  {
+   "code": "S36",
+   "titre": "Tarif très prudent (70 %), tempête modérée",
+   "description": "Tarif calculé en supposant 70 % du parc loué, face à la tempête modérée.",
+   "p_ruine": 0.07455,
+   "p_ruine_3ans": 0.00045,
+   "annee_ruine_mediane": 7.0,
+   "reserve_finale_p50": 424119.7030790632,
+   "reserve_finale_p05": 30790.164145495957,
+   "reserve_finale_p01": -175318.2294860721,
+   "resultat_annuel_moyen": 40157.6031304337,
+   "pire_annee_p01": -264755.5603063569,
+   "marge_moyenne": 0.025385287604004752,
+   "capital_requis_99": 186096.00308271497,
+   "capital_requis_par_velo": 93.0480015413575,
+   "occupation_moyenne": 0.6890547675,
+   "facture_leger_mois_an1": 56.341766663953486,
+   "facture_intensif_mois_an1": 126.73629005416525,
+   "facture_leger_mois_an10_p50": 91.36113380511522,
+   "facture_intensif_mois_an10_p50": 168.0210869225102,
+   "facture_intensif_mois_an10_p95": 193.27146613133797,
+   "revenu_atelier_an1": 19076.226203023925,
+   "flux_fabricants_an1": 190611.33072892524,
+   "fonds_collecte_an1": 1660387.337922753,
+   "tarif_equilibre_mult": 1.077,
+   "facture_mois_depart": {
+    "leger": 56.34176666395348,
+    "intensif": 126.73629005416528
+   }
   }
  ],
  "sensibilite": {
@@ -1275,5 +1425,271 @@
     ]
    ]
   }
- }
+ },
+ "vacance_prudente": [
+  {
+   "elasticite": 1.0,
+   "occupation_tarif": "94 % (référence)",
+   "leger_mois": 52.094877062398574,
+   "intensif_mois": 114.19017183259093,
+   "realites": {
+    "Réalité conforme": {
+     "p_ruine": 0.0002,
+     "occupation": 0.9273622450000001,
+     "capital_requis_99": 0.0
+    },
+    "Vacance forte (S16)": {
+     "p_ruine": 0.6109,
+     "occupation": 0.564026475,
+     "capital_requis_99": 505474.78067022
+    },
+    "Tempête modérée (S27)": {
+     "p_ruine": 0.6332,
+     "occupation": 0.6918858349999999,
+     "capital_requis_99": 408516.95276967355
+    },
+    "Pièces ×2 (S07)": {
+     "p_ruine": 0.8103,
+     "occupation": 0.7780242549999999,
+     "capital_requis_99": 456987.5684629245
+    },
+    "Main d'œuvre +40 % (S06)": {
+     "p_ruine": 0.5395,
+     "occupation": 0.817582145,
+     "capital_requis_99": 362374.7262440037
+    }
+   }
+  },
+  {
+   "elasticite": 1.0,
+   "occupation_tarif": "88 %",
+   "leger_mois": 52.91275891150185,
+   "intensif_mois": 116.60635010253527,
+   "realites": {
+    "Réalité conforme": {
+     "p_ruine": 0.0,
+     "occupation": 0.9273875650000001,
+     "capital_requis_99": 0.0
+    },
+    "Vacance forte (S16)": {
+     "p_ruine": 0.4906,
+     "occupation": 0.56375936,
+     "capital_requis_99": 468280.095033887
+    },
+    "Tempête modérée (S27)": {
+     "p_ruine": 0.4826,
+     "occupation": 0.6906873749999999,
+     "capital_requis_99": 355575.2233611129
+    },
+    "Pièces ×2 (S07)": {
+     "p_ruine": 0.617,
+     "occupation": 0.77744358,
+     "capital_requis_99": 407343.3727887282
+    },
+    "Main d'œuvre +40 % (S06)": {
+     "p_ruine": 0.3767,
+     "occupation": 0.8169113500000001,
+     "capital_requis_99": 308121.30052827724
+    }
+   }
+  },
+  {
+   "elasticite": 1.0,
+   "occupation_tarif": "80 %",
+   "leger_mois": 54.24626192634414,
+   "intensif_mois": 120.54577119483584,
+   "realites": {
+    "Réalité conforme": {
+     "p_ruine": 0.0,
+     "occupation": 0.9275364850000001,
+     "capital_requis_99": 0.0
+    },
+    "Vacance forte (S16)": {
+     "p_ruine": 0.2985,
+     "occupation": 0.563398575,
+     "capital_requis_99": 399225.6097567309
+    },
+    "Tempête modérée (S27)": {
+     "p_ruine": 0.267,
+     "occupation": 0.68938291,
+     "capital_requis_99": 303604.1675666598
+    },
+    "Pièces ×2 (S07)": {
+     "p_ruine": 0.3386,
+     "occupation": 0.777021195,
+     "capital_requis_99": 346232.1107988701
+    },
+    "Main d'œuvre +40 % (S06)": {
+     "p_ruine": 0.1743,
+     "occupation": 0.8162025,
+     "capital_requis_99": 219103.79562204058
+    }
+   }
+  },
+  {
+   "elasticite": 1.0,
+   "occupation_tarif": "70 %",
+   "leger_mois": 56.34176666395348,
+   "intensif_mois": 126.73629005416528,
+   "realites": {
+    "Réalité conforme": {
+     "p_ruine": 0.0,
+     "occupation": 0.9275809950000001,
+     "capital_requis_99": 0.0
+    },
+    "Vacance forte (S16)": {
+     "p_ruine": 0.1333,
+     "occupation": 0.563872485,
+     "capital_requis_99": 315797.7036956151
+    },
+    "Tempête modérée (S27)": {
+     "p_ruine": 0.079,
+     "occupation": 0.6888860000000001,
+     "capital_requis_99": 195652.47038516664
+    },
+    "Pièces ×2 (S07)": {
+     "p_ruine": 0.1248,
+     "occupation": 0.777523965,
+     "capital_requis_99": 260691.99799214862
+    },
+    "Main d'œuvre +40 % (S06)": {
+     "p_ruine": 0.0352,
+     "occupation": 0.815968095,
+     "capital_requis_99": 102230.49366774544
+    }
+   }
+  },
+  {
+   "elasticite": 0.0,
+   "occupation_tarif": "94 % (référence)",
+   "leger_mois": 52.094877062398574,
+   "intensif_mois": 114.19017183259093,
+   "realites": {
+    "Réalité conforme": {
+     "p_ruine": 0.0,
+     "occupation": 0.9374897899999999,
+     "capital_requis_99": 0.0
+    },
+    "Vacance forte (S16)": {
+     "p_ruine": 0.0419,
+     "occupation": 0.71429005,
+     "capital_requis_99": 47487.83510223999
+    },
+    "Tempête modérée (S27)": {
+     "p_ruine": 0.2561,
+     "occupation": 0.8609202349999999,
+     "capital_requis_99": 177412.30652492295
+    },
+    "Pièces ×2 (S07)": {
+     "p_ruine": 0.6118,
+     "occupation": 0.9374897899999999,
+     "capital_requis_99": 177122.59866912905
+    },
+    "Main d'œuvre +40 % (S06)": {
+     "p_ruine": 0.3492,
+     "occupation": 0.9374897899999999,
+     "capital_requis_99": 240947.12238195646
+    }
+   }
+  },
+  {
+   "elasticite": 0.0,
+   "occupation_tarif": "88 %",
+   "leger_mois": 52.91275891150185,
+   "intensif_mois": 116.60635010253527,
+   "realites": {
+    "Réalité conforme": {
+     "p_ruine": 0.0,
+     "occupation": 0.9374897899999999,
+     "capital_requis_99": 0.0
+    },
+    "Vacance forte (S16)": {
+     "p_ruine": 0.0149,
+     "occupation": 0.71429005,
+     "capital_requis_99": 16036.198738113808
+    },
+    "Tempête modérée (S27)": {
+     "p_ruine": 0.1304,
+     "occupation": 0.8609202349999999,
+     "capital_requis_99": 137861.0358786793
+    },
+    "Pièces ×2 (S07)": {
+     "p_ruine": 0.3575,
+     "occupation": 0.9374897899999999,
+     "capital_requis_99": 135641.5356948825
+    },
+    "Main d'œuvre +40 % (S06)": {
+     "p_ruine": 0.2103,
+     "occupation": 0.9374897899999999,
+     "capital_requis_99": 194949.2531803682
+    }
+   }
+  },
+  {
+   "elasticite": 0.0,
+   "occupation_tarif": "80 %",
+   "leger_mois": 54.24626192634414,
+   "intensif_mois": 120.54577119483584,
+   "realites": {
+    "Réalité conforme": {
+     "p_ruine": 0.0,
+     "occupation": 0.9374897899999999,
+     "capital_requis_99": 0.0
+    },
+    "Vacance forte (S16)": {
+     "p_ruine": 0.0031,
+     "occupation": 0.71429005,
+     "capital_requis_99": 0.0
+    },
+    "Tempête modérée (S27)": {
+     "p_ruine": 0.0378,
+     "occupation": 0.8609202349999999,
+     "capital_requis_99": 72787.59181436831
+    },
+    "Pièces ×2 (S07)": {
+     "p_ruine": 0.1023,
+     "occupation": 0.9374897899999999,
+     "capital_requis_99": 79849.86908715649
+    },
+    "Main d'œuvre +40 % (S06)": {
+     "p_ruine": 0.077,
+     "occupation": 0.9374897899999999,
+     "capital_requis_99": 122463.37436650583
+    }
+   }
+  },
+  {
+   "elasticite": 0.0,
+   "occupation_tarif": "70 %",
+   "leger_mois": 56.34176666395348,
+   "intensif_mois": 126.73629005416528,
+   "realites": {
+    "Réalité conforme": {
+     "p_ruine": 0.0,
+     "occupation": 0.9374897899999999,
+     "capital_requis_99": 0.0
+    },
+    "Vacance forte (S16)": {
+     "p_ruine": 0.0003,
+     "occupation": 0.71429005,
+     "capital_requis_99": 0.0
+    },
+    "Tempête modérée (S27)": {
+     "p_ruine": 0.0046,
+     "occupation": 0.8609202349999999,
+     "capital_requis_99": 0.0
+    },
+    "Pièces ×2 (S07)": {
+     "p_ruine": 0.0085,
+     "occupation": 0.9374897899999999,
+     "capital_requis_99": 0.0
+    },
+    "Main d'œuvre +40 % (S06)": {
+     "p_ruine": 0.0107,
+     "occupation": 0.9374897899999999,
+     "capital_requis_99": 3798.3338090572925
+    }
+   }
+  }
+ ]
 }
