@@ -1,0 +1,1279 @@
+{
+ "graine": 2026,
+ "trajectoires_simulees": 14440000,
+ "horizon_ans": 10,
+ "duree_s": 2679.8,
+ "tarif_reference": {
+  "leger": {
+   "fixe_an": 285.8029632653061,
+   "par_km": 0.12119127195838454,
+   "mois_moyen": 52.094877062398574
+  },
+  "intensif": {
+   "fixe_an": 597.0850040816327,
+   "par_km": 0.1405812832562652,
+   "mois_moyen": 114.19017183259093
+  }
+ },
+ "tarif_page": {
+  "leger": {
+   "fixe_an": 120.0,
+   "par_km": 0.11107142857142857,
+   "mois_moyen": 35.916666666666664
+  },
+  "intensif": {
+   "fixe_an": 120.0,
+   "par_km": 0.11727272727272728,
+   "mois_moyen": 63.75
+  }
+ },
+ "cout_attendu_par_velo": {
+  "leger": {
+   "part_km": 269.3755078125,
+   "part_fixe": 230.334625
+  },
+  "intensif": {
+   "part_km": 613.7887500000003,
+   "part_fixe": 481.203375
+  }
+ },
+ "occupation_equilibre": 0.9375000000000001,
+ "scenarios": [
+  {
+   "code": "S00",
+   "titre": "Contrôle : la page telle quelle",
+   "description": "Postes de la page seulement, parc toujours loué, tarif de la page.",
+   "p_ruine": 0.09565,
+   "p_ruine_3ans": 0.09105,
+   "annee_ruine_mediane": 1.0,
+   "reserve_finale_p50": 635569.8247089762,
+   "reserve_finale_p05": 328742.03554936446,
+   "reserve_finale_p01": 201000.08967885008,
+   "resultat_annuel_moyen": 63409.92129927804,
+   "pire_annee_p01": -137833.3880557011,
+   "marge_moyenne": 0.05610391519519628,
+   "capital_requis_99": 81431.62361146684,
+   "capital_requis_par_velo": 40.71581180573342,
+   "occupation_moyenne": 1.0,
+   "facture_leger_mois_an1": 35.916666666666664,
+   "facture_intensif_mois_an1": 63.75,
+   "facture_leger_mois_an10_p50": 35.916666666666664,
+   "facture_intensif_mois_an10_p50": 63.75,
+   "facture_intensif_mois_an10_p95": 63.75,
+   "revenu_atelier_an1": 19350.900216863025,
+   "flux_fabricants_an1": 192442.37046373842,
+   "fonds_collecte_an1": 1129156.928231387,
+   "tarif_equilibre_mult": 1.05,
+   "facture_mois_depart": {
+    "leger": 36.45351875,
+    "intensif": 64.72825000000002
+   }
+  },
+  {
+   "code": "S01",
+   "titre": "Location, tarif de la page",
+   "description": "Tous les coûts de la location, mais le tarif affiché sur la page, sans révision.",
+   "p_ruine": 1.0,
+   "p_ruine_3ans": 1.0,
+   "annee_ruine_mediane": 1.0,
+   "reserve_finale_p50": -6662755.9546660315,
+   "reserve_finale_p05": -7098237.356307177,
+   "reserve_finale_p01": -7288388.311323012,
+   "resultat_annuel_moyen": -666961.9038330284,
+   "pire_annee_p01": -1069620.1989436932,
+   "marge_moyenne": -0.651282642575522,
+   "capital_requis_99": 7288388.311323012,
+   "capital_requis_par_velo": 3644.194155661506,
+   "occupation_moyenne": 0.937499995,
+   "facture_leger_mois_an1": 35.916666666666664,
+   "facture_intensif_mois_an1": 63.75,
+   "facture_leger_mois_an10_p50": 35.916666666666664,
+   "facture_intensif_mois_an10_p50": 63.75,
+   "facture_intensif_mois_an10_p95": 63.75,
+   "revenu_atelier_an1": 18260.686055840197,
+   "flux_fabricants_an1": 191532.9528378879,
+   "fonds_collecte_an1": 1024240.6311356433,
+   "tarif_equilibre_mult": 1.736,
+   "facture_mois_depart": {
+    "leger": 52.094877062398574,
+    "intensif": 114.19017183259093
+   }
+  },
+  {
+   "code": "S02",
+   "titre": "Location, tarif recalculé (référence)",
+   "description": "Tarif recalculé sur tous les coûts de la location, révision annuelle plafonnée à ±10 %.",
+   "p_ruine": 0.00015,
+   "p_ruine_3ans": 0.0,
+   "annee_ruine_mediane": 6.0,
+   "reserve_finale_p50": 987371.9341335265,
+   "reserve_finale_p05": 769603.2665533528,
+   "reserve_finale_p01": 660482.7468122854,
+   "resultat_annuel_moyen": 97877.05105118423,
+   "pire_annee_p01": -246364.632501419,
+   "marge_moyenne": 0.05502342648573472,
+   "capital_requis_99": 0.0,
+   "capital_requis_par_velo": 0.0,
+   "occupation_moyenne": 0.9274361474999999,
+   "facture_leger_mois_an1": 52.094877062398574,
+   "facture_intensif_mois_an1": 114.19017183259092,
+   "facture_leger_mois_an10_p50": 65.51116075706288,
+   "facture_intensif_mois_an10_p50": 125.17807801374424,
+   "facture_intensif_mois_an10_p95": 133.80099158632336,
+   "revenu_atelier_an1": 18260.686055840197,
+   "flux_fabricants_an1": 191532.9528378879,
+   "fonds_collecte_an1": 1680653.5127815506,
+   "tarif_equilibre_mult": 0.936,
+   "facture_mois_depart": {
+    "leger": 52.094877062398574,
+    "intensif": 114.19017183259093
+   }
+  },
+  {
+   "code": "S03",
+   "titre": "Référence sans révision annuelle",
+   "description": "Même tarif de départ, jamais révisé pendant 10 ans (inflation 2 %).",
+   "p_ruine": 0.65035,
+   "p_ruine_3ans": 0.0,
+   "annee_ruine_mediane": 9.0,
+   "reserve_finale_p50": -99421.89859438641,
+   "reserve_finale_p05": -532802.3402568293,
+   "reserve_finale_p01": -723113.996942363,
+   "resultat_annuel_moyen": -10539.646935571098,
+   "pire_annee_p01": -411874.3028167739,
+   "marge_moyenne": -0.006274199696821186,
+   "capital_requis_99": 723113.996942363,
+   "capital_requis_par_velo": 361.5569984711815,
+   "occupation_moyenne": 0.937499995,
+   "facture_leger_mois_an1": 52.094877062398574,
+   "facture_intensif_mois_an1": 114.19017183259092,
+   "facture_leger_mois_an10_p50": 52.094877062398574,
+   "facture_intensif_mois_an10_p50": 114.19017183259093,
+   "facture_intensif_mois_an10_p95": 114.19017183259093,
+   "revenu_atelier_an1": 18260.686055840197,
+   "flux_fabricants_an1": 191532.9528378879,
+   "fonds_collecte_an1": 1680653.5127815506,
+   "tarif_equilibre_mult": 1.044,
+   "facture_mois_depart": {
+    "leger": 52.094877062398574,
+    "intensif": 114.19017183259093
+   }
+  },
+  {
+   "code": "S04",
+   "titre": "Casse prématurée ×2",
+   "description": "Deux fois plus de ruptures de cadre, moteur ou batterie que prévu.",
+   "p_ruine": 0.0003,
+   "p_ruine_3ans": 0.0,
+   "annee_ruine_mediane": 6.0,
+   "reserve_finale_p50": 965995.5300419977,
+   "reserve_finale_p05": 755107.3887920745,
+   "reserve_finale_p01": 651202.98915974,
+   "resultat_annuel_moyen": 95869.89604565917,
+   "pire_annee_p01": -245624.21546720059,
+   "marge_moyenne": 0.05352244809655301,
+   "capital_requis_99": 0.0,
+   "capital_requis_par_velo": 0.0,
+   "occupation_moyenne": 0.9238547425,
+   "facture_leger_mois_an1": 52.094877062398574,
+   "facture_intensif_mois_an1": 114.19017183259092,
+   "facture_leger_mois_an10_p50": 66.44537441140993,
+   "facture_intensif_mois_an10_p50": 126.87910551332753,
+   "facture_intensif_mois_an10_p95": 135.70927859891356,
+   "revenu_atelier_an1": 18260.957552916057,
+   "flux_fabricants_an1": 191532.9528378879,
+   "fonds_collecte_an1": 1680672.2338414993,
+   "tarif_equilibre_mult": 0.944,
+   "facture_mois_depart": {
+    "leger": 52.094877062398574,
+    "intensif": 114.19017183259093
+   }
+  },
+  {
+   "code": "S05",
+   "titre": "Casse prématurée ×3, coût ×2,25",
+   "description": "Trois fois plus de casse, à 900 € l'événement (cadre ou moteur de cargo).",
+   "p_ruine": 0.0059,
+   "p_ruine_3ans": 0.0012,
+   "annee_ruine_mediane": 6.0,
+   "reserve_finale_p50": 846253.6263832985,
+   "reserve_finale_p05": 638225.5302189955,
+   "reserve_finale_p01": 538965.7017568642,
+   "resultat_annuel_moyen": 83895.2116461366,
+   "pire_annee_p01": -240011.70671657624,
+   "marge_moyenne": 0.04571370625914387,
+   "capital_requis_99": 0.0,
+   "capital_requis_par_velo": 0.0,
+   "occupation_moyenne": 0.897108145,
+   "facture_leger_mois_an1": 52.094877062398574,
+   "facture_intensif_mois_an1": 114.19017183259092,
+   "facture_leger_mois_an10_p50": 71.46770645558547,
+   "facture_intensif_mois_an10_p50": 135.89258394765574,
+   "facture_intensif_mois_an10_p95": 145.4249646900495,
+   "revenu_atelier_an1": 18261.014986987968,
+   "flux_fabricants_an1": 191532.9528378879,
+   "fonds_collecte_an1": 1680695.8442105416,
+   "tarif_equilibre_mult": 0.991,
+   "facture_mois_depart": {
+    "leger": 52.094877062398574,
+    "intensif": 114.19017183259093
+   }
+  },
+  {
+   "code": "S06",
+   "titre": "Main d'œuvre +40 %",
+   "description": "Les heures par 1 000 km sont sous-estimées de 40 %.",
+   "p_ruine": 0.54365,
+   "p_ruine_3ans": 0.2424,
+   "annee_ruine_mediane": 4.0,
+   "reserve_finale_p50": 476075.3741877816,
+   "reserve_finale_p05": 160786.34391818242,
+   "reserve_finale_p01": -4083.691229503809,
+   "resultat_annuel_moyen": 46308.737469097985,
+   "pire_annee_p01": -335404.94681429345,
+   "marge_moyenne": 0.025249554116813153,
+   "capital_requis_99": 352916.0114436039,
+   "capital_requis_par_velo": 176.45800572180195,
+   "occupation_moyenne": 0.817706955,
+   "facture_leger_mois_an1": 52.094877062398574,
+   "facture_intensif_mois_an1": 114.19017183259092,
+   "facture_leger_mois_an10_p50": 84.33561483145805,
+   "facture_intensif_mois_an10_p50": 153.83664725150032,
+   "facture_intensif_mois_an10_p95": 167.54576550996924,
+   "revenu_atelier_an1": 22911.489677040812,
+   "flux_fabricants_an1": 191532.9528378879,
+   "fonds_collecte_an1": 1680653.5127815506,
+   "tarif_equilibre_mult": 1.142,
+   "facture_mois_depart": {
+    "leger": 52.094877062398574,
+    "intensif": 114.19017183259093
+   }
+  },
+  {
+   "code": "S07",
+   "titre": "Pièces ×2",
+   "description": "Pièces d'usure deux fois plus chères ou plus consommées que prévu.",
+   "p_ruine": 0.80825,
+   "p_ruine_3ans": 0.62905,
+   "annee_ruine_mediane": 1.0,
+   "reserve_finale_p50": 258983.06042529654,
+   "reserve_finale_p05": -251991.72972662037,
+   "reserve_finale_p01": -452338.27411501907,
+   "resultat_annuel_moyen": 22005.615830508235,
+   "pire_annee_p01": -240511.78736057377,
+   "marge_moyenne": 0.012028221812657324,
+   "capital_requis_99": 454755.35368457105,
+   "capital_requis_par_velo": 227.37767684228552,
+   "occupation_moyenne": 0.7780149,
+   "facture_leger_mois_an1": 52.094877062398574,
+   "facture_intensif_mois_an1": 114.19017183259092,
+   "facture_leger_mois_an10_p50": 80.00188339527591,
+   "facture_intensif_mois_an10_p50": 195.74838584485758,
+   "facture_intensif_mois_an10_p95": 244.60505610109468,
+   "revenu_atelier_an1": 18260.686055840197,
+   "flux_fabricants_an1": 191532.9528378879,
+   "fonds_collecte_an1": 1680653.5127815506,
+   "tarif_equilibre_mult": 1.239,
+   "facture_mois_depart": {
+    "leger": 52.094877062398574,
+    "intensif": 114.19017183259093
+   }
+  },
+  {
+   "code": "S08",
+   "titre": "Batteries à durée courte",
+   "description": "Batteries remplacées deux fois plus souvent (vélos-cargos).",
+   "p_ruine": 0.12735,
+   "p_ruine_3ans": 0.0,
+   "annee_ruine_mediane": 6.0,
+   "reserve_finale_p50": 747645.1617429665,
+   "reserve_finale_p05": 445145.6647582314,
+   "reserve_finale_p01": 303814.7364332274,
+   "resultat_annuel_moyen": 73729.2650295022,
+   "pire_annee_p01": -343388.6835059534,
+   "marge_moyenne": 0.04095853361573174,
+   "capital_requis_99": 193091.5297551497,
+   "capital_requis_par_velo": 96.54576487757485,
+   "occupation_moyenne": 0.917424665,
+   "facture_leger_mois_an1": 52.094877062398574,
+   "facture_intensif_mois_an1": 114.19017183259092,
+   "facture_leger_mois_an10_p50": 65.47745092550224,
+   "facture_intensif_mois_an10_p50": 138.744000847238,
+   "facture_intensif_mois_an10_p95": 148.45010315203123,
+   "revenu_atelier_an1": 18260.686055840197,
+   "flux_fabricants_an1": 191532.9528378879,
+   "fonds_collecte_an1": 1680653.5127815506,
+   "tarif_equilibre_mult": 1.072,
+   "facture_mois_depart": {
+    "leger": 52.094877062398574,
+    "intensif": 114.19017183259093
+   }
+  },
+  {
+   "code": "S09",
+   "titre": "Coût de fabrication réaliste, découvert après tarification",
+   "description": "Vélo-cargo électrique à 2 800 € et vélo classique à 600 €, tarif calé sur 1 170 € et 440 €.",
+   "p_ruine": 1.0,
+   "p_ruine_3ans": 0.82475,
+   "annee_ruine_mediane": 1.0,
+   "reserve_finale_p50": -1380818.3341793078,
+   "reserve_finale_p05": -1761724.6526840632,
+   "reserve_finale_p01": -1875592.8845857645,
+   "resultat_annuel_moyen": -137129.63502307326,
+   "pire_annee_p01": -611987.0580496461,
+   "marge_moyenne": -0.08634277545630839,
+   "capital_requis_99": 1875592.8845857645,
+   "capital_requis_par_velo": 937.7964422928823,
+   "occupation_moyenne": 0.7697569224999999,
+   "facture_leger_mois_an1": 52.094877062398574,
+   "facture_intensif_mois_an1": 114.19017183259092,
+   "facture_leger_mois_an10_p50": 69.38441162808469,
+   "facture_intensif_mois_an10_p50": 261.2488423202755,
+   "facture_intensif_mois_an10_p95": 269.25445200755127,
+   "revenu_atelier_an1": 18260.686055840197,
+   "flux_fabricants_an1": 397052.999993737,
+   "fonds_collecte_an1": 1680653.5127815506,
+   "tarif_equilibre_mult": null,
+   "facture_mois_depart": {
+    "leger": 52.094877062398574,
+    "intensif": 114.19017183259093
+   }
+  },
+  {
+   "code": "S10",
+   "titre": "Coût de fabrication réaliste, tarifé correctement",
+   "description": "Même coûts, mais connus au moment de fixer le tarif.",
+   "p_ruine": 1.0,
+   "p_ruine_3ans": 0.0,
+   "annee_ruine_mediane": 7.0,
+   "reserve_finale_p50": -1216315.1977319277,
+   "reserve_finale_p05": -1712372.8706798647,
+   "reserve_finale_p01": -1876476.19087434,
+   "resultat_annuel_moyen": -121048.09181063311,
+   "pire_annee_p01": -653920.1877772944,
+   "marge_moyenne": -0.0773239870909598,
+   "capital_requis_99": 1876476.19087434,
+   "capital_requis_par_velo": 938.23809543717,
+   "occupation_moyenne": 0.7531725425,
+   "facture_leger_mois_an1": 54.87285801477953,
+   "facture_intensif_mois_an1": 147.70097591422356,
+   "facture_leger_mois_an10_p50": 69.11236738860235,
+   "facture_intensif_mois_an10_p50": 269.46148488900684,
+   "facture_intensif_mois_an10_p95": 284.66539538675283,
+   "revenu_atelier_an1": 18260.686055840197,
+   "flux_fabricants_an1": 397052.999993737,
+   "fonds_collecte_an1": 2012654.3389126938,
+   "tarif_equilibre_mult": null,
+   "facture_mois_depart": {
+    "leger": 54.872858014779524,
+    "intensif": 147.7009759142236
+   }
+  },
+  {
+   "code": "S11",
+   "titre": "Rente financée à 5 %",
+   "description": "Le fabricant fait payer le coût de l'argent avancé sur 8 à 10 ans.",
+   "p_ruine": 0.00115,
+   "p_ruine_3ans": 0.0001,
+   "annee_ruine_mediane": 6.0,
+   "reserve_finale_p50": 929311.5228857168,
+   "reserve_finale_p05": 721350.1897493936,
+   "reserve_finale_p01": 619083.9973127727,
+   "resultat_annuel_moyen": 92133.12300701946,
+   "pire_annee_p01": -240147.55760659673,
+   "marge_moyenne": 0.05081536557199224,
+   "capital_requis_99": 0.0,
+   "capital_requis_par_velo": 0.0,
+   "occupation_moyenne": 0.9164084625000001,
+   "facture_leger_mois_an1": 52.094877062398574,
+   "facture_intensif_mois_an1": 114.19017183259092,
+   "facture_leger_mois_an10_p50": 67.82636374374466,
+   "facture_intensif_mois_an10_p50": 130.74748550840445,
+   "facture_intensif_mois_an10_p95": 139.8511503431151,
+   "revenu_atelier_an1": 18260.686055840197,
+   "flux_fabricants_an1": 240485.5643463563,
+   "fonds_collecte_an1": 1680653.5127815506,
+   "tarif_equilibre_mult": 0.959,
+   "facture_mois_depart": {
+    "leger": 52.094877062398574,
+    "intensif": 114.19017183259093
+   }
+  },
+  {
+   "code": "S12",
+   "titre": "Faillites de fabricants en chaîne",
+   "description": "15 % de risque de faillite par fabricant et par an : plus de garantie, pièces orphelines.",
+   "p_ruine": 0.00095,
+   "p_ruine_3ans": 0.0,
+   "annee_ruine_mediane": 6.0,
+   "reserve_finale_p50": 909967.5009617383,
+   "reserve_finale_p05": 698642.1427438629,
+   "reserve_finale_p01": 589195.044150897,
+   "resultat_annuel_moyen": 90153.09182303335,
+   "pire_annee_p01": -247886.1045937403,
+   "marge_moyenne": 0.04991117469817143,
+   "capital_requis_99": 0.0,
+   "capital_requis_par_velo": 0.0,
+   "occupation_moyenne": 0.9186832250000001,
+   "facture_leger_mois_an1": 52.094877062398574,
+   "facture_intensif_mois_an1": 114.19017183259092,
+   "facture_leger_mois_an10_p50": 67.53601435204097,
+   "facture_intensif_mois_an10_p50": 132.26037955295328,
+   "facture_intensif_mois_an10_p95": 141.46663328479156,
+   "revenu_atelier_an1": 18260.443694645164,
+   "flux_fabricants_an1": 189013.19688715335,
+   "fonds_collecte_an1": 1680547.627807907,
+   "tarif_equilibre_mult": 0.955,
+   "facture_mois_depart": {
+    "leger": 52.094877062398574,
+    "intensif": 114.19017183259093
+   }
+  },
+  {
+   "code": "S13",
+   "titre": "Défauts de série, faillites et vélos orphelins",
+   "description": "10 % de défaut de série et 10 % de faillite par fabricant et par an ; 15 % des vélos orphelins réformés chaque année.",
+   "p_ruine": 0.0027,
+   "p_ruine_3ans": 0.0002,
+   "annee_ruine_mediane": 6.0,
+   "reserve_finale_p50": 860719.7827263398,
+   "reserve_finale_p05": 630475.5411313666,
+   "reserve_finale_p01": 511912.5709431391,
+   "resultat_annuel_moyen": 85185.46499775976,
+   "pire_annee_p01": -248360.85233086714,
+   "marge_moyenne": 0.047003392789868564,
+   "capital_requis_99": 0.0,
+   "capital_requis_par_velo": 0.0,
+   "occupation_moyenne": 0.9132120625,
+   "facture_leger_mois_an1": 52.094877062398574,
+   "facture_intensif_mois_an1": 114.19017183259092,
+   "facture_leger_mois_an10_p50": 68.91489937884431,
+   "facture_intensif_mois_an10_p50": 136.41835227372852,
+   "facture_intensif_mois_an10_p95": 148.62534036780357,
+   "revenu_atelier_an1": 18260.227092339574,
+   "flux_fabricants_an1": 190172.4572804861,
+   "fonds_collecte_an1": 1680558.1077338846,
+   "tarif_equilibre_mult": 0.977,
+   "facture_mois_depart": {
+    "leger": 52.094877062398574,
+    "intensif": 114.19017183259093
+   }
+  },
+  {
+   "code": "S14",
+   "titre": "Vol élevé, assuré",
+   "description": "Vol à 4 % (classique) et 8 % (cargo électrique) par an, assurance à 5 % de la valeur.",
+   "p_ruine": 0.0001,
+   "p_ruine_3ans": 0.0,
+   "annee_ruine_mediane": 4.5,
+   "reserve_finale_p50": 990240.2663112746,
+   "reserve_finale_p05": 794826.4139973319,
+   "reserve_finale_p01": 696415.6869297945,
+   "resultat_annuel_moyen": 98375.98356903926,
+   "pire_annee_p01": -235672.34109874914,
+   "marge_moyenne": 0.05555257154401998,
+   "capital_requis_99": 0.0,
+   "capital_requis_par_velo": 0.0,
+   "occupation_moyenne": 0.92975209,
+   "facture_leger_mois_an1": 52.094877062398574,
+   "facture_intensif_mois_an1": 114.19017183259092,
+   "facture_leger_mois_an10_p50": 65.01148818151194,
+   "facture_intensif_mois_an10_p50": 125.23096589229344,
+   "facture_intensif_mois_an10_p95": 134.07858148311462,
+   "revenu_atelier_an1": 18262.109043294266,
+   "flux_fabricants_an1": 191532.9528378879,
+   "fonds_collecte_an1": 1680768.5021766727,
+   "tarif_equilibre_mult": 0.92,
+   "facture_mois_depart": {
+    "leger": 52.094877062398574,
+    "intensif": 114.19017183259093
+   }
+  },
+  {
+   "code": "S15",
+   "titre": "Vol élevé, non assuré",
+   "description": "Même vol, la SCIC s'auto-assure : la rente restante du vélo volé est soldée.",
+   "p_ruine": 0.00025,
+   "p_ruine_3ans": 0.00015,
+   "annee_ruine_mediane": 2.0,
+   "reserve_finale_p50": 906367.8204687061,
+   "reserve_finale_p05": 713652.5749121738,
+   "reserve_finale_p01": 617852.6173951045,
+   "resultat_annuel_moyen": 89826.93447804416,
+   "pire_annee_p01": -229912.72697165495,
+   "marge_moyenne": 0.05216033089610976,
+   "capital_requis_99": 0.0,
+   "capital_requis_par_velo": 0.0,
+   "occupation_moyenne": 0.9274031049999999,
+   "facture_leger_mois_an1": 50.12458998756863,
+   "facture_intensif_mois_an1": 109.70296315912157,
+   "facture_leger_mois_an10_p50": 62.65079688989695,
+   "facture_intensif_mois_an10_p50": 124.02386086919631,
+   "facture_intensif_mois_an10_p95": 133.07190830248683,
+   "revenu_atelier_an1": 18262.109043294266,
+   "flux_fabricants_an1": 191532.9528378879,
+   "fonds_collecte_an1": 1615186.5870734514,
+   "tarif_equilibre_mult": 0.948,
+   "facture_mois_depart": {
+    "leger": 50.12458998756864,
+    "intensif": 109.70296315912155
+   }
+  },
+  {
+   "code": "S16",
+   "titre": "Vacance forte",
+   "description": "40 % des locataires partent chaque année, un vélo vacant sur deux est reloué.",
+   "p_ruine": 0.6143,
+   "p_ruine_3ans": 0.0149,
+   "annee_ruine_mediane": 6.0,
+   "reserve_finale_p50": 61377.49488408456,
+   "reserve_finale_p05": -317214.9947088418,
+   "reserve_finale_p01": -484337.4077908451,
+   "resultat_annuel_moyen": 4240.702633285827,
+   "pire_annee_p01": -211375.7654962109,
+   "marge_moyenne": 0.0028470260563340792,
+   "capital_requis_99": 484337.4077908451,
+   "capital_requis_par_velo": 242.16870389542254,
+   "occupation_moyenne": 0.56365401,
+   "facture_leger_mois_an1": 52.094877062398574,
+   "facture_intensif_mois_an1": 114.19017183259092,
+   "facture_leger_mois_an10_p50": 90.81789145323357,
+   "facture_intensif_mois_an10_p50": 176.90351785116664,
+   "facture_intensif_mois_an10_p95": 206.30548947940326,
+   "revenu_atelier_an1": 14403.313132630898,
+   "flux_fabricants_an1": 191533.04565862552,
+   "fonds_collecte_an1": 1280357.0194010253,
+   "tarif_equilibre_mult": null,
+   "facture_mois_depart": {
+    "leger": 52.094877062398574,
+    "intensif": 114.19017183259093
+   }
+  },
+  {
+   "code": "S17",
+   "titre": "Fraude kilométrique massive",
+   "description": "30 % des usagers sous-déclarent 40 % de leurs km.",
+   "p_ruine": 0.01135,
+   "p_ruine_3ans": 0.0013,
+   "annee_ruine_mediane": 6.0,
+   "reserve_finale_p50": 780036.970087521,
+   "reserve_finale_p05": 565689.99424592,
+   "reserve_finale_p01": 458923.4645554881,
+   "resultat_annuel_moyen": 77182.17163068126,
+   "pire_annee_p01": -246667.89407992485,
+   "marge_moyenne": 0.04470107375617455,
+   "capital_requis_99": 5220.300198420697,
+   "capital_requis_par_velo": 2.6101500992103484,
+   "occupation_moyenne": 0.8973567225,
+   "facture_leger_mois_an1": 52.094877062398574,
+   "facture_intensif_mois_an1": 114.19017183259092,
+   "facture_leger_mois_an10_p50": 71.43449550993951,
+   "facture_intensif_mois_an10_p50": 137.1681694786629,
+   "facture_intensif_mois_an10_p95": 147.50660412249303,
+   "revenu_atelier_an1": 18260.686055840197,
+   "flux_fabricants_an1": 191532.9528378879,
+   "fonds_collecte_an1": 1581792.9103070393,
+   "tarif_equilibre_mult": 1.002,
+   "facture_mois_depart": {
+    "leger": 52.094877062398574,
+    "intensif": 114.19017183259093
+   }
+  },
+  {
+   "code": "S18",
+   "titre": "Usage réel +30 % de km",
+   "description": "Les vélos roulent 30 % de plus que prévu (usure et km déclarés).",
+   "p_ruine": 0.00085,
+   "p_ruine_3ans": 0.0,
+   "annee_ruine_mediane": 6.0,
+   "reserve_finale_p50": 1113275.9076725915,
+   "reserve_finale_p05": 837979.0192205686,
+   "reserve_finale_p01": 706424.1586226608,
+   "resultat_annuel_moyen": 110393.95509776294,
+   "pire_annee_p01": -315742.4946619587,
+   "marge_moyenne": 0.05319170025975618,
+   "capital_requis_99": 0.0,
+   "capital_requis_par_velo": 0.0,
+   "occupation_moyenne": 0.92684132,
+   "facture_leger_mois_an1": 60.57826609948551,
+   "facture_intensif_mois_an1": 133.52009828032746,
+   "facture_leger_mois_an10_p50": 76.69887692160488,
+   "facture_intensif_mois_an10_p50": 147.73054389707048,
+   "facture_intensif_mois_an10_p95": 158.50447039662515,
+   "revenu_atelier_an1": 21748.788771740656,
+   "flux_fabricants_an1": 191532.9528378879,
+   "fonds_collecte_an1": 1958875.4940312465,
+   "tarif_equilibre_mult": 0.948,
+   "facture_mois_depart": {
+    "leger": 60.57826609948549,
+    "intensif": 133.5200982803274
+   }
+  },
+  {
+   "code": "S19",
+   "titre": "Impayés à 8 %",
+   "description": "Défauts de paiement quatre fois plus élevés.",
+   "p_ruine": 0.0375,
+   "p_ruine_3ans": 0.006,
+   "annee_ruine_mediane": 6.0,
+   "reserve_finale_p50": 724983.1565029006,
+   "reserve_finale_p05": 473492.7943410282,
+   "reserve_finale_p01": 353589.16036002,
+   "resultat_annuel_moyen": 71566.13900889101,
+   "pire_annee_p01": -277348.4351659094,
+   "marge_moyenne": 0.04165067962710182,
+   "capital_requis_99": 68599.18751061802,
+   "capital_requis_par_velo": 34.29959375530901,
+   "occupation_moyenne": 0.8935863925,
+   "facture_leger_mois_an1": 52.094877062398574,
+   "facture_intensif_mois_an1": 114.19017183259092,
+   "facture_leger_mois_an10_p50": 72.07662342759369,
+   "facture_intensif_mois_an10_p50": 138.42237150267647,
+   "facture_intensif_mois_an10_p95": 150.79892068729674,
+   "revenu_atelier_an1": 18260.686055840197,
+   "flux_fabricants_an1": 191532.9528378879,
+   "fonds_collecte_an1": 1573166.5258307888,
+   "tarif_equilibre_mult": 1.033,
+   "facture_mois_depart": {
+    "leger": 52.094877062398574,
+    "intensif": 114.19017183259093
+   }
+  },
+  {
+   "code": "S20",
+   "titre": "Inflation 5 % sans révision",
+   "description": "Inflation des coûts de 5 % par an, tarif figé.",
+   "p_ruine": 1.0,
+   "p_ruine_3ans": 0.0,
+   "annee_ruine_mediane": 6.0,
+   "reserve_finale_p50": -2387849.8148440938,
+   "reserve_finale_p05": -2905338.9957934553,
+   "reserve_finale_p01": -3131784.971581663,
+   "resultat_annuel_moyen": -239502.05077437506,
+   "pire_annee_p01": -943199.4232784014,
+   "marge_moyenne": -0.1425093219085941,
+   "capital_requis_99": 3131784.971581663,
+   "capital_requis_par_velo": 1565.8924857908314,
+   "occupation_moyenne": 0.937499995,
+   "facture_leger_mois_an1": 52.094877062398574,
+   "facture_intensif_mois_an1": 114.19017183259092,
+   "facture_leger_mois_an10_p50": 52.094877062398574,
+   "facture_intensif_mois_an10_p50": 114.19017183259093,
+   "facture_intensif_mois_an10_p95": 114.19017183259093,
+   "revenu_atelier_an1": 18260.686055840197,
+   "flux_fabricants_an1": 191532.9528378879,
+   "fonds_collecte_an1": 1680653.5127815506,
+   "tarif_equilibre_mult": 1.198,
+   "facture_mois_depart": {
+    "leger": 52.094877062398574,
+    "intensif": 114.19017183259093
+   }
+  },
+  {
+   "code": "S21",
+   "titre": "Primes au plafond",
+   "description": "Score moyen de 95 : les primes de durabilité coûtent plus que prévu.",
+   "p_ruine": 0.001,
+   "p_ruine_3ans": 0.0,
+   "annee_ruine_mediane": 6.0,
+   "reserve_finale_p50": 937684.9413067934,
+   "reserve_finale_p05": 723264.8567498433,
+   "reserve_finale_p01": 610183.4650239219,
+   "resultat_annuel_moyen": 92986.36342818313,
+   "pire_annee_p01": -252027.30918635544,
+   "marge_moyenne": 0.05150439932780775,
+   "capital_requis_99": 0.0,
+   "capital_requis_par_velo": 0.0,
+   "occupation_moyenne": 0.9171178349999999,
+   "facture_leger_mois_an1": 52.094877062398574,
+   "facture_intensif_mois_an1": 114.19017183259092,
+   "facture_leger_mois_an10_p50": 68.23858367144909,
+   "facture_intensif_mois_an10_p50": 129.09692641023994,
+   "facture_intensif_mois_an10_p95": 138.0529928173942,
+   "revenu_atelier_an1": 18642.09440069044,
+   "flux_fabricants_an1": 194892.57288361533,
+   "fonds_collecte_an1": 1680653.5127815506,
+   "tarif_equilibre_mult": 0.958,
+   "facture_mois_depart": {
+    "leger": 52.094877062398574,
+    "intensif": 114.19017183259093
+   }
+  },
+  {
+   "code": "S22",
+   "titre": "Coûts de gestion fixes réalistes",
+   "description": "180 000 €/an de structure (2 ETP, registre, comité) au lieu de 6 %.",
+   "p_ruine": 0.3026,
+   "p_ruine_3ans": 0.08205,
+   "annee_ruine_mediane": 5.0,
+   "reserve_finale_p50": 265693.2868316347,
+   "reserve_finale_p05": -171705.69514608642,
+   "reserve_finale_p01": -337073.06411776843,
+   "resultat_annuel_moyen": 24895.169377739792,
+   "pire_annee_p01": -256560.82390666057,
+   "marge_moyenne": 0.013941057616921796,
+   "capital_requis_99": 337615.7927239759,
+   "capital_requis_par_velo": 168.80789636198796,
+   "occupation_moyenne": 0.7691226600000001,
+   "facture_leger_mois_an1": 52.094877062398574,
+   "facture_intensif_mois_an1": 114.19017183259092,
+   "facture_leger_mois_an10_p50": 104.45580014100297,
+   "facture_intensif_mois_an10_p50": 140.6911759383733,
+   "facture_intensif_mois_an10_p95": 151.0697811291159,
+   "revenu_atelier_an1": 18260.686055840197,
+   "flux_fabricants_an1": 191532.9528378879,
+   "fonds_collecte_an1": 1680653.5127815506,
+   "tarif_equilibre_mult": 1.195,
+   "facture_mois_depart": {
+    "leger": 52.094877062398574,
+    "intensif": 114.19017183259093
+   }
+  },
+  {
+   "code": "S23",
+   "titre": "Tarif unique + élasticité (spirale)",
+   "description": "Pas de segmentation : les usagers légers paient pour les intensifs et partent.",
+   "p_ruine": 0.4089,
+   "p_ruine_3ans": 0.0,
+   "annee_ruine_mediane": 7.0,
+   "reserve_finale_p50": 109463.76840239309,
+   "reserve_finale_p05": -221745.199596527,
+   "reserve_finale_p01": -367088.87718324846,
+   "resultat_annuel_moyen": 11325.280445555405,
+   "pire_annee_p01": -253658.03534021898,
+   "marge_moyenne": 0.007651753991178535,
+   "capital_requis_99": 374456.16132018255,
+   "capital_requis_par_velo": 187.22808066009128,
+   "occupation_moyenne": 0.6497928775,
+   "facture_leger_mois_an1": 65.03629022695793,
+   "facture_intensif_mois_an1": 94.77805208575192,
+   "facture_leger_mois_an10_p50": 106.22901402685251,
+   "facture_intensif_mois_an10_p50": 154.80863052489698,
+   "facture_intensif_mois_an10_p95": 172.24243960603545,
+   "revenu_atelier_an1": 18260.686055840197,
+   "flux_fabricants_an1": 191532.9528378879,
+   "fonds_collecte_an1": 1680670.4864490207,
+   "tarif_equilibre_mult": null,
+   "facture_mois_depart": {
+    "leger": 52.094877062398574,
+    "intensif": 114.19017183259093
+   }
+  },
+  {
+   "code": "S24",
+   "titre": "Pilote 200 vélos, 2 fabricants",
+   "description": "Petit pool : 120 légers, 80 cargos, 2 fabricants, 4 ateliers.",
+   "p_ruine": 0.0026,
+   "p_ruine_3ans": 0.0002,
+   "annee_ruine_mediane": 6.0,
+   "reserve_finale_p50": 96450.73255948583,
+   "reserve_finale_p05": 69389.39522740582,
+   "reserve_finale_p01": 55158.796217961986,
+   "resultat_annuel_moyen": 9541.91429501901,
+   "pire_annee_p01": -28114.659628273315,
+   "marge_moyenne": 0.053748923703211084,
+   "capital_requis_99": 0.0,
+   "capital_requis_par_velo": 0.0,
+   "occupation_moyenne": 0.926786875,
+   "facture_leger_mois_an1": 52.094877062398574,
+   "facture_intensif_mois_an1": 114.19017183259092,
+   "facture_leger_mois_an10_p50": 65.41724766673289,
+   "facture_intensif_mois_an10_p50": 125.5128150630657,
+   "facture_intensif_mois_an10_p95": 138.62719635888934,
+   "revenu_atelier_an1": 18276.435796801525,
+   "flux_fabricants_an1": 19151.25030228577,
+   "fonds_collecte_an1": 168113.81020642995,
+   "tarif_equilibre_mult": 0.972,
+   "facture_mois_depart": {
+    "leger": 52.094877062398574,
+    "intensif": 114.19017183259093
+   }
+  },
+  {
+   "code": "S25",
+   "titre": "Pilote 200 vélos, 2 fabricants, faillites",
+   "description": "Petit pool avec 10 % de faillite annuelle par fabricant.",
+   "p_ruine": 0.0068,
+   "p_ruine_3ans": 0.0009,
+   "annee_ruine_mediane": 6.0,
+   "reserve_finale_p50": 90126.95543876609,
+   "reserve_finale_p05": 61886.086077880034,
+   "reserve_finale_p01": 47016.16708695501,
+   "resultat_annuel_moyen": 8900.379987647922,
+   "pire_annee_p01": -29873.924758700843,
+   "marge_moyenne": 0.04968871219859282,
+   "capital_requis_99": 0.0,
+   "capital_requis_par_velo": 0.0,
+   "occupation_moyenne": 0.9215450500000001,
+   "facture_leger_mois_an1": 52.094877062398574,
+   "facture_intensif_mois_an1": 114.19017183259092,
+   "facture_leger_mois_an10_p50": 66.71221651211314,
+   "facture_intensif_mois_an10_p50": 130.12068174491242,
+   "facture_intensif_mois_an10_p95": 143.82800722556013,
+   "revenu_atelier_an1": 18276.29575962559,
+   "flux_fabricants_an1": 19015.351571315397,
+   "fonds_collecte_an1": 168112.76288523735,
+   "tarif_equilibre_mult": 0.995,
+   "facture_mois_depart": {
+    "leger": 52.094877062398574,
+    "intensif": 114.19017183259093
+   }
+  },
+  {
+   "code": "S26",
+   "titre": "Grande échelle : 20 000 vélos",
+   "description": "Dix fois le parc de la page, 20 fabricants, 400 ateliers.",
+   "p_ruine": 0.0002,
+   "p_ruine_3ans": 0.0,
+   "annee_ruine_mediane": 6.5,
+   "reserve_finale_p50": 9887859.170404837,
+   "reserve_finale_p05": 7804557.746359494,
+   "reserve_finale_p01": 6829631.430856894,
+   "resultat_annuel_moyen": 981223.1695526803,
+   "pire_annee_p01": -2454107.507894271,
+   "marge_moyenne": 0.055138569520671525,
+   "capital_requis_99": 0.0,
+   "capital_requis_par_velo": 0.0,
+   "occupation_moyenne": 0.927573731,
+   "facture_leger_mois_an1": 52.094877062398574,
+   "facture_intensif_mois_an1": 114.19017183259092,
+   "facture_leger_mois_an10_p50": 65.54032602006802,
+   "facture_intensif_mois_an10_p50": 125.12045565480331,
+   "facture_intensif_mois_an10_p95": 132.8289540963354,
+   "revenu_atelier_an1": 18259.768153569734,
+   "flux_fabricants_an1": 1915304.696213504,
+   "fonds_collecte_an1": 16808796.86549346,
+   "tarif_equilibre_mult": 0.933,
+   "facture_mois_depart": {
+    "leger": 52.094877062398574,
+    "intensif": 114.19017183259093
+   }
+  },
+  {
+   "code": "S27",
+   "titre": "Tempête modérée",
+   "description": "Casse ×1,5, MO +20 %, vol 3 à 6 %, vacance forte, faillites 8 %, impayés 4 %.",
+   "p_ruine": 0.63445,
+   "p_ruine_3ans": 0.1919,
+   "annee_ruine_mediane": 5.0,
+   "reserve_finale_p50": 199174.0821761014,
+   "reserve_finale_p05": -185440.88687690473,
+   "reserve_finale_p01": -383761.9988994356,
+   "resultat_annuel_moyen": 17839.174725715162,
+   "pire_annee_p01": -267129.31458562874,
+   "marge_moyenne": 0.011235695102779449,
+   "capital_requis_99": 409439.4781758062,
+   "capital_requis_par_velo": 204.7197390879031,
+   "occupation_moyenne": 0.692104785,
+   "facture_leger_mois_an1": 52.094877062398574,
+   "facture_intensif_mois_an1": 114.19017183259092,
+   "facture_leger_mois_an10_p50": 91.31670155953172,
+   "facture_intensif_mois_an10_p50": 168.35885721530974,
+   "facture_intensif_mois_an10_p95": 192.6472091072799,
+   "revenu_atelier_an1": 19076.226203023925,
+   "flux_fabricants_an1": 190611.33072892524,
+   "fonds_collecte_an1": 1510581.6241796033,
+   "tarif_equilibre_mult": 1.202,
+   "facture_mois_depart": {
+    "leger": 52.094877062398574,
+    "intensif": 114.19017183259093
+   }
+  },
+  {
+   "code": "S28",
+   "titre": "Tempête sévère",
+   "description": "Tout ce qui peut mal tourner en même temps, vol non assuré et inflation 4 %.",
+   "p_ruine": 1.0,
+   "p_ruine_3ans": 1.0,
+   "annee_ruine_mediane": 1.0,
+   "reserve_finale_p50": -3553347.749548549,
+   "reserve_finale_p05": -3955950.1525869817,
+   "reserve_finale_p01": -4122478.464062207,
+   "resultat_annuel_moyen": -355688.7520132051,
+   "pire_annee_p01": -635482.9997396015,
+   "marge_moyenne": -0.31952447053191224,
+   "capital_requis_99": 4122478.464062207,
+   "capital_requis_par_velo": 2061.2392320311033,
+   "occupation_moyenne": 0.4892182375,
+   "facture_leger_mois_an1": 50.12458998756863,
+   "facture_intensif_mois_an1": 109.70296315912157,
+   "facture_leger_mois_an10_p50": 118.1911612235093,
+   "facture_intensif_mois_an10_p50": 258.6738486769089,
+   "facture_intensif_mois_an10_p95": 258.6738486769089,
+   "revenu_atelier_an1": 18812.72927464961,
+   "flux_fabricants_an1": 189020.03847200793,
+   "fonds_collecte_an1": 1199018.5742103676,
+   "tarif_equilibre_mult": null,
+   "facture_mois_depart": {
+    "leger": 50.12458998756864,
+    "intensif": 109.70296315912155
+   }
+  },
+  {
+   "code": "S29",
+   "titre": "Tempête modérée, tarifée à l'avance",
+   "description": "La tempête modérée, mais connue au moment de tarifer.",
+   "p_ruine": 0.03735,
+   "p_ruine_3ans": 5e-05,
+   "annee_ruine_mediane": 8.0,
+   "reserve_finale_p50": 499292.6348771021,
+   "reserve_finale_p05": 84183.28937357098,
+   "reserve_finale_p01": -129901.2080930281,
+   "resultat_annuel_moyen": 47379.17311889927,
+   "pire_annee_p01": -261415.2390116012,
+   "marge_moyenne": 0.029911337176930067,
+   "capital_requis_99": 137673.36264215445,
+   "capital_requis_par_velo": 68.83668132107722,
+   "occupation_moyenne": 0.6861175899999999,
+   "facture_leger_mois_an1": 59.5308023107022,
+   "facture_intensif_mois_an1": 129.77640450721157,
+   "facture_leger_mois_an10_p50": 91.85082669573269,
+   "facture_intensif_mois_an10_p50": 168.66241786033146,
+   "facture_intensif_mois_an10_p95": 194.37670652918464,
+   "revenu_atelier_an1": 19076.226203023925,
+   "flux_fabricants_an1": 190611.33072892524,
+   "fonds_collecte_an1": 1720351.8200206636,
+   "tarif_equilibre_mult": 1.064,
+   "facture_mois_depart": {
+    "leger": 59.53080231070221,
+    "intensif": 129.77640450721157
+   }
+  },
+  {
+   "code": "S30",
+   "titre": "Coût de fabrication réaliste, usagers captifs",
+   "description": "Comme S10, mais les usagers (flottes pro) ne partent pas quand le prix monte.",
+   "p_ruine": 0.0,
+   "p_ruine_3ans": 0.0,
+   "annee_ruine_mediane": null,
+   "reserve_finale_p50": 1252442.5999486905,
+   "reserve_finale_p05": 1069153.7150910213,
+   "reserve_finale_p01": 975264.0039544292,
+   "resultat_annuel_moyen": 124695.56784796354,
+   "pire_annee_p01": -224749.26909093754,
+   "marge_moyenne": 0.05842682045961754,
+   "capital_requis_99": 0.0,
+   "capital_requis_par_velo": 0.0,
+   "occupation_moyenne": 0.937499995,
+   "facture_leger_mois_an1": 54.87285801477953,
+   "facture_intensif_mois_an1": 147.70097591422356,
+   "facture_leger_mois_an10_p50": 68.38991782946138,
+   "facture_intensif_mois_an10_p50": 157.9174106170443,
+   "facture_intensif_mois_an10_p95": 167.41404943444957,
+   "revenu_atelier_an1": 18260.686055840197,
+   "flux_fabricants_an1": 397052.999993737,
+   "fonds_collecte_an1": 2012654.3389126938,
+   "tarif_equilibre_mult": 0.914,
+   "facture_mois_depart": {
+    "leger": 54.872858014779524,
+    "intensif": 147.7009759142236
+   }
+  },
+  {
+   "code": "S31",
+   "titre": "Tempête sévère, tarifée à l'avance, usagers captifs",
+   "description": "Le pire cas connu d'avance, sans départ des usagers : le prix nécessaire.",
+   "p_ruine": 0.24085,
+   "p_ruine_3ans": 0.00015,
+   "annee_ruine_mediane": 6.0,
+   "reserve_finale_p50": 531816.9953612491,
+   "reserve_finale_p05": 136192.74068687062,
+   "reserve_finale_p01": -73227.44259525857,
+   "resultat_annuel_moyen": 51080.4120668929,
+   "pire_annee_p01": -412463.577473659,
+   "marge_moyenne": 0.024279671007210398,
+   "capital_requis_99": 359412.20047684025,
+   "capital_requis_par_velo": 179.70610023842013,
+   "occupation_moyenne": 0.7533865724999999,
+   "facture_leger_mois_an1": 72.5052272178368,
+   "facture_intensif_mois_an1": 170.7041014951122,
+   "facture_leger_mois_an10_p50": 107.28220894592211,
+   "facture_intensif_mois_an10_p50": 226.51405561451625,
+   "facture_intensif_mois_an10_p95": 243.72612530691916,
+   "revenu_atelier_an1": 18812.72927464961,
+   "flux_fabricants_an1": 189020.03847200793,
+   "fonds_collecte_an1": 1808058.9077832878,
+   "tarif_equilibre_mult": 1.108,
+   "facture_mois_depart": {
+    "leger": 72.5052272178368,
+    "intensif": 170.70410149511216
+   }
+  }
+ ],
+ "sensibilite": {
+  "n_jeux": 5000,
+  "n_traj_par_jeu": 200,
+  "p_ruine_globale": 0.882043,
+  "part_jeux_ruine_sup_5pct": 0.9348,
+  "part_jeux_ruine_sup_50pct": 0.8826,
+  "marge_mediane": -0.17280761327463284,
+  "capital_requis_99_median": 3092588.608308778,
+  "capital_requis_99_p90": 5731522.5459583495,
+  "classement": [
+   {
+    "parametre": "cout_intensif",
+    "plage": [
+     1000.0,
+     3000.0
+    ],
+    "spearman_marge": -0.5164243178089727,
+    "p_ruine_quintile_bas": 0.716375,
+    "p_ruine_quintile_haut": 0.9865999999999999
+   },
+   {
+    "parametre": "pieces_facteur",
+    "plage": [
+     0.5,
+     1.7
+    ],
+    "spearman_marge": -0.3585483204859328,
+    "p_ruine_quintile_bas": 0.723635,
+    "p_ruine_quintile_haut": 0.9816600000000001
+   },
+   {
+    "parametre": "h_facteur",
+    "plage": [
+     0.75,
+     1.35
+    ],
+    "spearman_marge": -0.32509647277985887,
+    "p_ruine_quintile_bas": 0.7430650000000001,
+    "p_ruine_quintile_haut": 0.972735
+   },
+   {
+    "parametre": "remplissage",
+    "plage": [
+     0.55,
+     0.95
+    ],
+    "spearman_marge": 0.30026240765849627,
+    "p_ruine_quintile_bas": 0.9404349999999999,
+    "p_ruine_quintile_haut": 0.8376549999999999
+   },
+   {
+    "parametre": "inflation",
+    "plage": [
+     0.0,
+     0.04
+    ],
+    "spearman_marge": 0.27782550103302,
+    "p_ruine_quintile_bas": 0.88162,
+    "p_ruine_quintile_haut": 0.903005
+   },
+   {
+    "parametre": "churn",
+    "plage": [
+     0.1,
+     0.35
+    ],
+    "spearman_marge": -0.22204443624177742,
+    "p_ruine_quintile_bas": 0.8408150000000001,
+    "p_ruine_quintile_haut": 0.919945
+   },
+   {
+    "parametre": "gestion_fixe",
+    "plage": [
+     0.0,
+     150000.0
+    ],
+    "spearman_marge": -0.2109450660378026,
+    "p_ruine_quintile_bas": 0.8141649999999999,
+    "p_ruine_quintile_haut": 0.931775
+   },
+   {
+    "parametre": "taux_horaire",
+    "plage": [
+     40.0,
+     58.0
+    ],
+    "spearman_marge": -0.19699450531978016,
+    "p_ruine_quintile_bas": 0.8008299999999999,
+    "p_ruine_quintile_haut": 0.94224
+   },
+   {
+    "parametre": "km_facteur",
+    "plage": [
+     0.7,
+     1.3
+    ],
+    "spearman_marge": 0.16900826999233076,
+    "p_ruine_quintile_bas": 0.9272100000000001,
+    "p_ruine_quintile_haut": 0.83562
+   },
+   {
+    "parametre": "impayes",
+    "plage": [
+     0.0,
+     0.06
+    ],
+    "spearman_marge": -0.1586359454494378,
+    "p_ruine_quintile_bas": 0.842265,
+    "p_ruine_quintile_haut": 0.913475
+   },
+   {
+    "parametre": "vieillissement",
+    "plage": [
+     0.0,
+     0.08
+    ],
+    "spearman_marge": -0.12718058611122343,
+    "p_ruine_quintile_bas": 0.829635,
+    "p_ruine_quintile_haut": 0.919615
+   },
+   {
+    "parametre": "taux_financement",
+    "plage": [
+     0.0,
+     0.06
+    ],
+    "spearman_marge": -0.12416808727072348,
+    "p_ruine_quintile_bas": 0.851115,
+    "p_ruine_quintile_haut": 0.898255
+   },
+   {
+    "parametre": "batterie_facteur",
+    "plage": [
+     0.5,
+     1.7
+    ],
+    "spearman_marge": -0.09463738516149539,
+    "p_ruine_quintile_bas": 0.86065,
+    "p_ruine_quintile_haut": 0.9194
+   },
+   {
+    "parametre": "fraude_part",
+    "plage": [
+     0.0,
+     0.3
+    ],
+    "spearman_marge": -0.0927515376620615,
+    "p_ruine_quintile_bas": 0.84513,
+    "p_ruine_quintile_haut": 0.91625
+   },
+   {
+    "parametre": "cout_leger",
+    "plage": [
+     380.0,
+     650.0
+    ],
+    "spearman_marge": -0.08591731150069244,
+    "p_ruine_quintile_bas": 0.862005,
+    "p_ruine_quintile_haut": 0.9128999999999999
+   },
+   {
+    "parametre": "reforme_orphelins",
+    "plage": [
+     0.0,
+     0.15
+    ],
+    "spearman_marge": -0.06706917129076684,
+    "p_ruine_quintile_bas": 0.87651,
+    "p_ruine_quintile_haut": 0.894655
+   },
+   {
+    "parametre": "score_moyen",
+    "plage": [
+     60.0,
+     95.0
+    ],
+    "spearman_marge": -0.05825349708213988,
+    "p_ruine_quintile_bas": 0.8621949999999999,
+    "p_ruine_quintile_haut": 0.9031100000000001
+   },
+   {
+    "parametre": "faillite_fab",
+    "plage": [
+     0.0,
+     0.12
+    ],
+    "spearman_marge": -0.05248246558729861,
+    "p_ruine_quintile_bas": 0.86329,
+    "p_ruine_quintile_haut": 0.895595
+   },
+   {
+    "parametre": "casse_facteur",
+    "plage": [
+     0.5,
+     3.0
+    ],
+    "spearman_marge": -0.04069787989991519,
+    "p_ruine_quintile_bas": 0.8645499999999999,
+    "p_ruine_quintile_haut": 0.90365
+   },
+   {
+    "parametre": "vol_intensif",
+    "plage": [
+     0.02,
+     0.07
+    ],
+    "spearman_marge": 0.02809488601979544,
+    "p_ruine_quintile_bas": 0.88984,
+    "p_ruine_quintile_haut": 0.880025
+   },
+   {
+    "parametre": "vol_leger",
+    "plage": [
+     0.01,
+     0.04
+    ],
+    "spearman_marge": -0.011003786648151465,
+    "p_ruine_quintile_bas": 0.882065,
+    "p_ruine_quintile_haut": 0.890215
+   },
+   {
+    "parametre": "serie_proba",
+    "plage": [
+     0.0,
+     0.08
+    ],
+    "spearman_marge": -0.006109338676373546,
+    "p_ruine_quintile_bas": 0.8680599999999999,
+    "p_ruine_quintile_haut": 0.8897849999999999
+   }
+  ],
+  "grille": {
+   "x": "cout_intensif",
+   "y": "pieces_facteur",
+   "bornes_x": [
+    1000.3513603302551,
+    1500.0932083911703,
+    1999.9784034930606,
+    2499.89867945119,
+    2999.9303154565496
+   ],
+   "bornes_y": [
+    0.5002092973185933,
+    0.8000189073328585,
+    1.0999947155958887,
+    1.399910466782934,
+    1.6998511006729695
+   ],
+   "p_ruine": [
+    [
+     0.47322485207100595,
+     0.7253503184713376,
+     0.8348825503355706,
+     0.9355666666666665
+    ],
+    [
+     0.6785714285714286,
+     0.8309034267912774,
+     0.925987460815047,
+     0.983892405063291
+    ],
+    [
+     0.8737335526315789,
+     0.956095238095238,
+     0.9827993527508091,
+     0.9982298136645963
+    ],
+    [
+     0.9417197452229299,
+     0.9900999999999999,
+     0.9996604938271605,
+     1.0
+    ]
+   ]
+  }
+ }
+}

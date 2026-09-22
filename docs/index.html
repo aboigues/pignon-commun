@@ -772,23 +772,26 @@
   <p class="section-note">Kilométrages sourcés, pas inventés : 2 800 km/an pour un usage léger, à partir d'une distance domicile-travail de 6 à 13 km selon les études (<a href="https://mobilites-durables.transports.gouv.fr/indicateurs/details/distance-moyenne-dom-trav/methodo/" target="_blank" rel="noopener">ministère de la Transition écologique</a>, <a href="https://www.fub.fr/velo-ville/villes-qui-aiment-velo/velo-france-etat-lieux" target="_blank" rel="noopener">FUB</a>) parcourue sur environ 200 jours de pratique réelle par an ; 5 500 km/an pour un usage intensif, à partir des 24 km parcourus en moyenne par jour de tournée par les flottes professionnelles de vélos-cargos (<a href="https://strategieslogistique.com/Les-boites-a-velo-dressent-un,14693" target="_blank" rel="noopener">Observatoire des Boîtes à Vélo, 2024</a>). Le reste des hypothèses ci-dessous — coûts de fabrication, sinistralité, score moyen — reste illustratif.</p>
 
   <h3 style="font-family:var(--font-display);font-size:1.1rem;margin-top:36px;margin-bottom:6px">Construire la cotisation, catégorie par catégorie</h3>
-  <p class="lede" style="font-size:0.92rem">Chaque ligne applique une formule déjà posée (blocs 04 et 05) — rien n'est ajouté qui ne soit déjà dans le modèle, seulement chiffré.</p>
+  <p class="lede" style="font-size:0.92rem">Chaque ligne applique une formule déjà posée (blocs 04 et 05). Comme la SCIC est propriétaire des vélos, la cotisation couvre aussi ce que paie un propriétaire : pièces d'usure, batterie, assurance vol, remise en état entre deux locataires et vélos vacants.</p>
   <div class="table-wrap">
     <table class="data-table">
-      <thead><tr><th>Poste</th><th>Léger — 2 800 km/an</th><th>Intensif — 5 500 km/an</th></tr></thead>
+      <thead><tr><th>Poste, par vélo et par an</th><th>Léger — 2 800 km/an</th><th>Intensif — 5 500 km/an</th></tr></thead>
       <tbody>
-        <tr><td>Forfait de suivi</td><td class="num">120 €</td><td class="num">120 €</td></tr>
-        <tr><td>Main d'œuvre attendue</td><td class="num">3,3 h → 155 €</td><td class="num">6,4 h → 301 €</td></tr>
-        <tr><td>Prime de durabilité réparateur</td><td class="num">52 €</td><td class="num">79 €</td></tr>
+        <tr><td>Forfait de suivi</td><td class="num">115 €</td><td class="num">115 €</td></tr>
+        <tr><td>Main d'œuvre attendue, vieillissement compris</td><td class="num">3,7 h → 171 €</td><td class="num">6,8 h → 322 €</td></tr>
+        <tr><td>Prime de durabilité réparateur</td><td class="num">54 €</td><td class="num">82 €</td></tr>
+        <tr><td>Pièces d'usure et batterie</td><td class="num">66 €</td><td class="num">232 € + 85 €</td></tr>
         <tr><td>Rente d'usage fabricant</td><td class="num">44 €</td><td class="num">146 €</td></tr>
-        <tr><td>Prime de durabilité fabricant</td><td class="num">7 €</td><td class="num">25 €</td></tr>
-        <tr><td>Chargement de gestion (6 %) + provision de sécurité (8 %)</td><td class="num">+ 53 €</td><td class="num">+ 94 €</td></tr>
-        <tr class="total"><td>Cotisation annuelle</td><td class="num">431 €</td><td class="num">765 €</td></tr>
-        <tr><td>— dont part fixe / part variable</td><td class="num">120 € + 0,11 €/km</td><td class="num">120 € + 0,12 €/km</td></tr>
+        <tr><td>Prime de durabilité fabricant</td><td class="num">7 €</td><td class="num">23 €</td></tr>
+        <tr><td>Casse prématurée, assurance vol, capteur, remise en état</td><td class="num">43 €</td><td class="num">90 €</td></tr>
+        <tr><td>Chargement de gestion (6 %) + provision de sécurité (8 %)</td><td class="num">+ 70 €</td><td class="num">+ 153 €</td></tr>
+        <tr><td>Vélos vacants (6 % du parc), impayés et fraude</td><td class="num">+ 55 €</td><td class="num">+ 122 €</td></tr>
+        <tr class="total"><td>Cotisation annuelle</td><td class="num">625 € — 52 €/mois</td><td class="num">1 370 € — 114 €/mois</td></tr>
+        <tr><td>— dont part fixe / part variable</td><td class="num">286 € + 0,12 €/km</td><td class="num">597 € + 0,14 €/km</td></tr>
       </tbody>
     </table>
   </div>
-  <p class="section-note">Les deux tarifs au kilomètre finissent proches — 0,11 € et 0,12 € — malgré une main d'œuvre et une rente fabricant très différentes, parce que le forfait fixe et l'essentiel du socle pèsent proportionnellement moins sur un vélo qui roule beaucoup. Et le tarif reste bas dans l'absolu : la valeur du modèle est dans le forfait et la main d'œuvre, pas dans le prix du kilomètre — corriger l'hypothèse de kilométrage change la façon dont la cotisation se répartit, pas son montant total.</p>
+  <p class="section-note">La part fixe pèse plus lourd que dans une cotisation d'entretien, parce qu'elle porte le vélo lui-même : rente du fabricant, assurance, batterie, et le coût des vélos qui attendent un locataire. Pour le vélo-cargo, 114 €/mois se situent au niveau du coût de possession d'un vélo-cargo électrique, avec le suivi et la garantie en plus ; pour un usage léger, 52 €/mois restent environ deux fois plus chers que posséder un vélo classique. Ces montants viennent de la <a href="https://github.com/aboigues/pignon-commun/blob/master/docs/simulation-economique.md" target="_blank" rel="noopener">simulation économique du dépôt</a>, qui teste aussi 32 scénarios critiques.</p>
 
   <h3 style="font-family:var(--font-display);font-size:1.1rem;margin-top:40px;margin-bottom:6px">D'où vient la rente d'usage fabricant</h3>
   <p class="lede" style="font-size:0.92rem">Le fabricant n'est pas payé à la vente : le coût qu'il avance à la fabrication (bloc 04) est amorti par le fonds sur la durée de vie garantie du vélo.</p>
@@ -807,18 +810,20 @@
     <table class="data-table">
       <thead><tr><th>Poste de dépense</th><th>Montant</th><th>Part du fonds</th></tr></thead>
       <tbody>
-        <tr><td>Forfait de suivi (réparateurs)</td><td class="num">240 000 €</td><td class="num">21,3 %</td></tr>
-        <tr><td>Main d'œuvre (réparateurs)</td><td class="num">426 800 €</td><td class="num">37,8 %</td></tr>
-        <tr><td>Prime de durabilité (réparateurs)</td><td class="num">125 600 €</td><td class="num">11,1 %</td></tr>
-        <tr><td>Rente d'usage (fabricants)</td><td class="num">169 600 €</td><td class="num">15,0 %</td></tr>
-        <tr><td>Prime de durabilité (fabricants)</td><td class="num">28 400 €</td><td class="num">2,5 %</td></tr>
-        <tr><td>Chargement de gestion</td><td class="num">59 400 €</td><td class="num">5,3 %</td></tr>
-        <tr><td>Provision de sécurité</td><td class="num">79 200 €</td><td class="num">7,0 %</td></tr>
-        <tr class="total"><td>Total collecté</td><td class="num">1 129 200 €</td><td class="num">100 %</td></tr>
+        <tr><td>Forfait de suivi (réparateurs)</td><td class="num">229 500 €</td><td class="num">13,6 %</td></tr>
+        <tr><td>Main d'œuvre (réparateurs)</td><td class="num">463 100 €</td><td class="num">27,5 %</td></tr>
+        <tr><td>Prime de durabilité (réparateurs)</td><td class="num">129 900 €</td><td class="num">7,7 %</td></tr>
+        <tr><td>Pièces d'usure et batteries</td><td class="num">332 600 €</td><td class="num">19,8 %</td></tr>
+        <tr><td>Rente d'usage (fabricants)</td><td class="num">169 800 €</td><td class="num">10,1 %</td></tr>
+        <tr><td>Prime de durabilité (fabricants)</td><td class="num">27 200 €</td><td class="num">1,6 %</td></tr>
+        <tr><td>Casse, assurance vol, capteurs, remise en état</td><td class="num">123 600 €</td><td class="num">7,4 %</td></tr>
+        <tr><td>Chargement de gestion</td><td class="num">88 500 €</td><td class="num">5,3 %</td></tr>
+        <tr><td>Provision de sécurité</td><td class="num">118 100 €</td><td class="num">7,0 %</td></tr>
+        <tr class="total"><td>Total collecté</td><td class="num">1 682 300 €</td><td class="num">100 %</td></tr>
       </tbody>
     </table>
   </div>
-  <p class="section-note">Pour un atelier de 50 vélos, ça représente environ 19 800 € par an de la part du fonds — un revenu d'appoint qui s'ajoute à l'activité existante d'un magasin, pas de quoi la remplacer à ce volume. C'est cohérent : le modèle est pensé pour des ateliers déjà en activité, pas pour créer 40 emplois à temps plein à partir de rien.</p>
+  <p class="section-note">Pour un atelier de 50 vélos, ça représente environ 20 500 € par an de la part du fonds — un revenu d'appoint qui s'ajoute à l'activité existante d'un magasin, pas de quoi la remplacer à ce volume. C'est cohérent : le modèle est pensé pour des ateliers déjà en activité, pas pour créer 40 emplois à temps plein à partir de rien.</p>
 
   <h3 style="font-family:var(--font-display);font-size:1.1rem;margin-top:40px;margin-bottom:6px">La provision de sécurité tient-elle la route</h3>
   <p class="lede" style="font-size:0.92rem">Casse prématurée attendue : 1,5 % des vélos légers, 3 % des vélos intensifs, à 400 € l'événement en moyenne.</p>
@@ -826,11 +831,11 @@
     <div class="spec"><span class="v">42 sinistres/an</span><span class="k">attendus sur l'ensemble du parc — 18 léger + 24 intensif</span></div>
     <div class="spec"><span class="v">16 800 €</span><span class="k">coût attendu, à la charge des fabricants via le fonds</span></div>
     <div class="spec"><span class="v">≈ 61 sinistres</span><span class="k">scénario défavorable — moyenne + 3 écarts-types, en supposant une distribution proche d'une loi de Poisson</span></div>
-    <div class="spec"><span class="v">79 200 €</span><span class="k">provision de sécurité — couvre le scénario défavorable (24 400 €) plus de trois fois</span></div>
+    <div class="spec"><span class="v">118 100 €</span><span class="k">provision de sécurité — couvre le scénario défavorable (24 400 €) plus de quatre fois</span></div>
   </div>
-  <p class="section-note">C'est l'effet concret de la mutualisation évoquée au bloc 05 : à l'échelle d'un seul atelier de 50 vélos, un mauvais trimestre peut doubler ou tripler le nombre de sinistres sans que ce soit anormal statistiquement. À 2 000 vélos, la même variation relative pèse beaucoup moins sur le fonds — c'est précisément pour ça que la taille du pool est une condition actuarielle, pas un détail d'échelle.</p>
+  <p class="section-note">C'est l'effet concret de la mutualisation évoquée au bloc 05 : à l'échelle d'un seul atelier de 50 vélos, un mauvais trimestre peut doubler ou tripler le nombre de sinistres sans que ce soit anormal statistiquement. À 2 000 vélos, la même variation relative pèse beaucoup moins sur le fonds — c'est précisément pour ça que la taille du pool est une condition actuarielle, pas un détail d'échelle. La <a href="https://github.com/aboigues/pignon-commun/blob/master/docs/simulation-economique.md" target="_blank" rel="noopener">simulation économique</a> nuance cependant ce point : ce qui menace vraiment le fonds, ce ne sont pas les sinistres mais les erreurs sur les coûts récurrents — pièces, main d'œuvre, coût de fabrication du vélo-cargo — qui touchent tout le parc à la fois. Contre elles, c'est la révision annuelle du tarif qui protège, pas la taille.</p>
 
-  <p class="section-note" style="margin-top:28px">Au total, cette seule simulation met environ 2 000 clients, 40 ateliers (une centaine de réparateurs certifiés tous niveaux confondus), 8 fabricants et un comité technique de quelques personnes dans une seule boucle économique de 1,13 M€ par an.</p>
+  <p class="section-note" style="margin-top:28px">Au total, cette seule simulation met environ 2 000 éco-usagers, 40 ateliers (une centaine de réparateurs certifiés tous niveaux confondus), 8 fabricants et un comité technique de quelques personnes dans une seule boucle économique de 1,68 M€ par an.</p>
   <span class="badge-illustratif">kilométrages sourcés (vélotaf, Observatoire des Boîtes à Vélo) — coûts de fabrication et sinistralité restent illustratifs, méthode reproductible avec de vraies données de pilote</span>
 </section>
 
@@ -967,9 +972,9 @@
       <p class="college-persona"><strong>Camille</strong>, vélo-cargo, livraisons de quartier, environ 90 km par semaine — proche des 24 km par jour de tournée mesurés en moyenne sur les flottes professionnelles. Loue son vélo-cargo à la SCIC depuis huit mois.</p>
 
       <div class="spec-grid">
-        <div class="spec"><span class="v">10 €/mois</span><span class="k">part fixe — structure, réseau, stock de pièces</span></div>
-        <div class="spec"><span class="v">+ €/km</span><span class="k">part variable — indexée sur l'usure réelle</span></div>
-        <div class="spec"><span class="v">42 €/mois</span><span class="k">coût moyen tout compris hors pièces, sur la base de l'atelier de 50 vélos-cargos du référentiel</span></div>
+        <div class="spec"><span class="v">50 €/mois</span><span class="k">part fixe — le vélo, son suivi, son assurance et sa batterie</span></div>
+        <div class="spec"><span class="v">+ 0,14 €/km</span><span class="k">part variable — indexée sur l'usure réelle</span></div>
+        <div class="spec"><span class="v">≈ 105 €/mois</span><span class="k">tout compris pour ses 90 km par semaine — vélo, pièces et batterie inclus</span></div>
       </div>
 
       <div class="two-col">
@@ -991,7 +996,7 @@
           </ul>
         </div>
       </div>
-      <span class="badge-illustratif">tarifs illustratifs — référentiel réparateur</span>
+      <span class="badge-illustratif">tarifs illustratifs — simulation économique du dépôt</span>
     </div>
 
     <!-- COLLÈGE 2 : RÉPARATEUR -->

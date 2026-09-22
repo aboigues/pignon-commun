@@ -5,6 +5,8 @@ Réflexion en cours sur des modèles économiques pour la filière du vélo, pen
 ## Contenu
 
 - [`docs/referentiel-reparateur-durabilite.md`](docs/referentiel-reparateur-durabilite.md) — Référentiel de compétences et grille de rémunération du **réparateur agent de la durabilité** : missions, nomenclature des pannes (qui paie la main d'œuvre selon le type de panne), niveaux de qualification, certification, grille socle + prime, indicateurs, garde-fous, mise en œuvre.
+- [`docs/simulation-economique.md`](docs/simulation-economique.md) — Simulation Monte-Carlo du fonds commun en location : 32 scénarios critiques, analyse de sensibilité, tarif de référence et recommandations avant pilote. Code dans [`simulation/simulation.py`](simulation/simulation.py) (`uv run simulation/simulation.py`).
+- [`docs/acteurs.md`](docs/acteurs.md) — Registre des acteurs à rencontrer (financeurs, juristes, fabricants, ateliers, usagers), avec les questions à leur poser et un tableau de suivi des contacts.
 
 ## Cadre général du projet
 
