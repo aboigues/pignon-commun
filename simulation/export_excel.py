@@ -147,6 +147,8 @@ def feuille_lisez_moi(wb, res):
         (F_TEXTE, f"Scénarios — résultats Monte-Carlo des {len(res['scenarios'])} scénarios critiques ({res['trajectoires_simulees']:,} trajectoires de 10 ans, graine {res['graine']}).".replace(",", " ")),
         (F_TEXTE, "Sensibilité — classement des 22 paramètres selon leur influence sur la marge, et carte de la probabilité de ruine."),
         (F_TEXTE, "Vacance prudente — effet d'un tarif calculé en supposant moins de vélos loués que prévu, face à plusieurs réalités."),
+        (F_TEXTE, "Argumentaire — comparaison avec l'achat, un loueur privé et une location publique, prix mensuels liés à la feuille Cotisation, faiblesses d'un loueur classique, raisons de choisir Pignon commun et objections."),
+        (F_TEXTE, "Acteurs — les acteurs à rencontrer, ce qu'il faut leur demander, l'argument à mettre en avant et des colonnes de suivi des contacts à remplir."),
         (None, ""),
         (F_SOUS, "Légende"),
         (Font(name=POLICE, size=10, color=BLEU), "Texte bleu : valeur saisie, à modifier pour tester une hypothèse (feuille Hypothèses)."),
@@ -471,6 +473,194 @@ def feuille_vacance(wb, res):
                       "ne se produit pas.").font = F_NOTE
 
 
+COMPARAISON = [
+    ("Propriétaire du vélo", "La coopérative, dont l'usager est sociétaire", "L'usager", "L'entreprise de location", "La collectivité, via un exploitant"),
+    ("Ce que paie l'usager", "Une part fixe et une part au kilomètre : l'usure qu'il cause", "Le vélo d'avance, puis chaque réparation", "Un forfait mensuel", "Un forfait mensuel subventionné"),
+    ("Durée", "Engagement minimal de 12 à 24 mois, puis sans limite", "Sans limite", "Selon l'offre", "3 à 12 mois"),
+    ("Le fabricant est payé", "Par une rente sur la durée de vie, avec une prime s'il dure", "À la vente", "À la vente de la flotte au loueur", "À la vente de la flotte"),
+    ("Le réparateur est payé", "Forfait de suivi et prime de durabilité, jamais de marge sur les pièces", "À chaque intervention", "Par le loueur, selon son organisation", "Par l'exploitant"),
+    ("Qui fixe le prix", "La coopérative, sur des coûts publiés et révisés chaque année", "Le marché", "L'entreprise", "La collectivité"),
+    ("L'excédent va", "Dans la coopérative : baisse du tarif ou réserve commune", "—", "À l'entreprise et à ses actionnaires", "Au service public, financé en partie par l'impôt"),
+    ("Suivi du vélo", "Contrôles préventifs selon le kilométrage, historique pièce par pièce", "À l'usager d'y penser", "Entretien par le loueur", "Entretien par l'exploitant"),
+    ("En fin de contrat", "Rendu, reconditionné et reloué ; pièces valides au stock commun", "Revendu", "Rendu", "Rendu"),
+]
+
+FAIBLESSES = [
+    ("Il loue des vélos qu'il n'a pas conçus",
+     "Rarement fabricant, il achète sa flotte à des fabricants payés à la vente et la fait réparer par des ateliers payés à "
+     "l'intervention : des acteurs dont les intérêts ne vont pas forcément vers la durée de vie.",
+     "Fabricants, réparateurs et usagers sont dans la même coopérative et payés par le même fonds, sur le même résultat : "
+     "la durée de vie. Rente et prime pour le fabricant, prime aux kilomètres sans panne pour le réparateur, pièces "
+     "standard et documentées imposées par le label."),
+    ("Un vélo qui n'est pas le sien, on le ménage moins",
+     "L'usager ne supporte ni l'usure ni la revente. Le loueur n'a que la caution et la facture de dégâts, une fois le mal fait.",
+     "Part au kilomètre qui fait payer l'usure réelle, négligence facturée hors du fonds, état des lieux daté à l'entrée "
+     "et à la sortie, engagement de signaler avant la panne, conseil d'entretien. Surtout, l'éco-usager est sociétaire : "
+     "le parc qu'il abîme est en partie le sien, et chaque réparation évitée pèse sur le tarif qu'il vote."),
+]
+
+RAISONS = [
+    ("Personne ne gagne à ce que le vélo casse", "Ni le fabricant, payé tant que le vélo roule, ni le réparateur, primé sur les kilomètres sans panne, ni la coopérative, sans actionnaire."),
+    ("On paie l'usure qu'on cause", "La part au kilomètre suit l'usage réel : un mois où l'on roule peu coûte moins cher."),
+    ("On a son mot à dire sur le prix", "Tarif construit sur des coûts publiés, voté et révisé chaque année ; la provision non consommée fait baisser le prix."),
+    ("Moins d'arrêts, pas d'avance", "Pas de vélo-cargo à 5 000 € à financer, entretien planifié avant la panne, casse prématurée garantie, atelier noté sur le délai de remise en service."),
+    ("La cotisation construit une filière", "Fabricants de pièces réparables, ateliers de proximité, vélo reconditionné et reloué avec son historique."),
+]
+
+OBJECTIONS = [
+    ("« C'est un loueur de plus. »", "Un loueur subit la conception de ses vélos et la négligence de ses clients ; Pignon commun aligne fabricants, réparateurs et usagers sur la durée de vie."),
+    ("« Véligo est moins cher. »", "Véligo est subventionné et limité à 3 à 12 mois : c'est une offre d'essai. Pignon commun vise l'usage durable, sans limite de durée, avec une gouvernance partagée."),
+    ("« Posséder son vélo coûte moins cher. »", "Vrai pour un usage léger (voir le tableau des prix). La cible prioritaire est l'usage intensif, où le prix rejoint le coût de possession, avec le service en plus."),
+    ("« Les usagers vont abîmer des vélos qui ne sont pas à eux. »", "Le risque existe dans toute location ; Pignon commun y oppose la part au kilomètre, la négligence facturée, l'état des lieux et le statut de sociétaire. À vérifier en pilote avec les données de Véligo."),
+    ("« Qui garantit que le fonds tient ? »", "La simulation économique : scénarios critiques, révision annuelle obligatoire, tarif de démarrage prudent et réserve d'environ 205 € par vélo."),
+]
+
+# (priorité, catégorie, acteur, à demander, argument à mettre en avant)
+ACTEURS = [
+    (1, "Droit et assurance", "Juriste spécialisé", "La location suffit-elle à écarter la requalification en assurance ?", "Le vélo appartient à la SCIC, qui entretient son propre parc comme un loueur de flotte."),
+    (1, "Droit et assurance", "Mutuelle d'assurance de l'ESS", "Prix de l'assurance vol d'un parc de 2 000 vélos (simulation : 5 % de la valeur par an)", "Les garde-fous contre la négligence réduisent la sinistralité d'un parc loué."),
+    (1, "Financeurs", "Ecologic", "Une réparation payée par une SCIC propriétaire ouvre-t-elle droit au Bonus Répar Cycle ?", "La réparation est au cœur du modèle : le réparateur est payé pour éviter la panne."),
+    (2, "Fabricants", "Douze Cycles", "Rente sur 8 à 10 ans ? Coût de fabrication réel d'un cargo labellisé ? Garantie de disponibilité des pièces ?", "Revenu indépendant des ventes, client qui paie la durabilité, voix dans la gouvernance. Déjà en logique de service avec Ecovelo."),
+    (2, "Ateliers", "La Fabrique des Cyclistes", "Être l'atelier pilote ; heures réelles par vélo et par an", "Revenu socle sans malus, prime de durabilité, aucune dépendance à la marge sur les pièces : payé pour éviter la panne."),
+    (3, "Financeurs", "ADEME", "Financer l'étude de faisabilité et le pilote (dispositif EFC 2026)", "Un loueur classique reste dans l'économie de la vente ; Pignon commun paie sur la durée de vie : c'est l'économie de la fonctionnalité."),
+    (4, "Collectivités", "Île-de-France Mobilités et Cyclonova (Véligo)", "Taux de casse, vol, vacance, rotation ; part des réparations due à la négligence", "Se présenter en relais de Véligo, pas en concurrent ; leurs données testent l'argument sur la négligence."),
+    (4, "Usagers", "Les Boîtes à Vélo", "Coût réel de possession d'un vélo-cargo ; disposition à payer un service complet", "Pas de vélo à 5 000 € à avancer, moins de jours d'arrêt, casse garantie : le cœur de cible."),
+    (5, "Montage", "CG Scop et union régionale", "Structurer les trois collèges et financer un comité technique indépendant", "Une SCIC où chaque collège vote, au service d'un bien commun."),
+    (5, "Théorie", "ATEMIS et IEEFC", "Relire le modèle avant le dossier ADEME", "Un cas concret d'économie de la fonctionnalité et de la coopération dans le vélo."),
+    (None, "Fabricants", "Arcade Cycles", "Mêmes questions que pour Douze Cycles", "Revenu stable dans une filière en surcapacité."),
+    (None, "Fabricants", "Manufacture Française du Cycle", "Mêmes questions que pour Douze Cycles", "Rôle de perma-fabricant sous-traitant payé sur la durée."),
+    (None, "Fabricants", "Lapierre", "Conversation stratégique, pas partenaire unique", "Un modèle économique autonome, recherché pendant le redressement judiciaire."),
+    (None, "Ateliers", "VELOOP", "Parcours de reconditionnement et stock de pièces commun", "Le vélo rendu est reconditionné et reloué, ses pièces retournent au stock."),
+    (None, "Ateliers", "Mobilians et OPCO Mobilités", "Reconnaissance des niveaux N1 à N3 ; financement de la formation", "Un métier de réparateur revalorisé, payé pour la durée de vie obtenue."),
+    (None, "Usagers", "FUB", "Données sur le vol ; regard des usagers", "Transparence sur l'usage léger, pour lequel posséder son vélo reste moins cher."),
+]
+
+
+def feuille_argumentaire(wb):
+    ws = wb.create_sheet("Argumentaire")
+    ws["A1"].value, ws["A1"].font = "Pourquoi louer à Pignon commun plutôt qu'ailleurs", F_TITRE
+    ws["A2"].value, ws["A2"].font = ("Arguments de la page de présentation et du registre des acteurs (docs/acteurs.md). "
+                                     "Les prix Pignon commun sont liés à la feuille Cotisation."), F_NOTE
+    largeurs = [30, 44, 34, 34, 34]
+    for i, w in enumerate(largeurs, start=1):
+        ws.column_dimensions[get_column_letter(i)].width = w
+
+    ligne = 4
+    ws.cell(ligne, 1, "Comparaison avec les autres solutions").font = F_SOUS
+    ligne += 1
+    entetes(ws, ligne, ["Critère", "Pignon commun", "Acheter son vélo", "Loueur privé par abonnement", "Location publique (type Véligo)"])
+    ws.cell(ligne, 2).fill = PatternFill("solid", fgColor="3E6B52")
+    for critere, *valeurs in COMPARAISON:
+        ligne += 1
+        ws.cell(ligne, 1, critere).font = F_TOTAL
+        for j, v in enumerate(valeurs, start=2):
+            c = ws.cell(ligne, j, v)
+            c.font, c.alignment = F_TEXTE, ENVELOPPE
+            if j == 2:
+                c.fill = FOND_TOTAL
+        for col in range(1, 6):
+            ws.cell(ligne, col).border = BORDURE
+        ws.cell(ligne, 1).alignment = ENVELOPPE
+
+    ligne += 2
+    ws.cell(ligne, 1, "Prix mensuels indicatifs").font = F_SOUS
+    ligne += 1
+    entetes(ws, ligne, ["Usage", "Pignon commun (€/mois)", "Coût de possession estimé (€/mois)", "Véligo (€/mois)", "Écart Pignon commun / possession"])
+    prix = [("Léger, vélo classique", "Cotisation!C29", 22, 10), ("Intensif, vélo-cargo électrique", "Cotisation!D29", 110, 88)]
+    debut_prix = ligne + 1
+    for usage, ref, possession, veligo in prix:
+        ligne += 1
+        ws.cell(ligne, 1, usage).font = F_TOTAL
+        c = ws.cell(ligne, 2, f"={ref}")
+        c.font, c.number_format, c.fill = F_LIEN, EUR, FOND_TOTAL
+        c = ws.cell(ligne, 3, possession)
+        c.font, c.number_format = F_SAISIE, EUR
+        c = ws.cell(ligne, 4, veligo)
+        c.font, c.number_format = F_SAISIE, EUR
+        c = ws.cell(ligne, 5, f"=B{ligne}/C{ligne}-1")
+        c.font, c.number_format = F_TEXTE, '+0%;-0%;0%'
+    ws.cell(debut_prix, 3).comment = Comment(
+        "Estimation illustrative : vélo à 800 € sur 10 ans, entretien et antivol, environ 20 à 25 €/mois.", "Pignon commun")
+    ws.cell(debut_prix + 1, 3).comment = Comment(
+        "Estimation illustrative : vélo-cargo de 3 500 à 7 000 €, batterie de 500 à 1 000 € tous les 4 à 5 ans, "
+        "entretien professionnel et assurance, environ 100 à 120 €/mois.", "Pignon commun")
+    ws.cell(debut_prix, 4).comment = Comment("Véligo Location 2026, vélo mécanique (Île-de-France Mobilités).", "Pignon commun")
+    ws.cell(debut_prix + 1, 4).comment = Comment("Véligo Location 2026, vélo-cargo : jusqu'à 88 €/mois, subventionné.", "Pignon commun")
+    ligne += 1
+    ws.cell(ligne, 1, "Coût de possession et Véligo : valeurs saisies (bleu), modifiables. Voir les commentaires des cellules.").font = F_NOTE
+
+    ligne += 2
+    ws.cell(ligne, 1, "Les deux faiblesses d'un loueur classique").font = F_SOUS
+    ligne += 1
+    entetes(ws, ligne, ["Faiblesse", "Pourquoi", "Réponse de Pignon commun"])
+    for titre, pourquoi, reponse in FAIBLESSES:
+        ligne += 1
+        ws.cell(ligne, 1, titre).font = F_TOTAL
+        ws.cell(ligne, 2, pourquoi).font = F_TEXTE
+        ws.merge_cells(start_row=ligne, start_column=3, end_row=ligne, end_column=5)
+        ws.cell(ligne, 3, reponse).font = F_TEXTE
+        for col in range(1, 6):
+            ws.cell(ligne, col).alignment = ENVELOPPE
+            ws.cell(ligne, col).border = BORDURE
+        ws.row_dimensions[ligne].height = 90
+
+    ligne += 2
+    ws.cell(ligne, 1, "Les cinq raisons de choisir Pignon commun").font = F_SOUS
+    for k, (titre, texte) in enumerate(RAISONS, start=1):
+        ligne += 1
+        ws.cell(ligne, 1, f"{k}. {titre}").font = F_TOTAL
+        ws.merge_cells(start_row=ligne, start_column=2, end_row=ligne, end_column=5)
+        ws.cell(ligne, 2, texte).font = F_TEXTE
+        for col in (1, 2):
+            ws.cell(ligne, col).alignment = ENVELOPPE
+        ws.row_dimensions[ligne].height = 32
+
+    ligne += 2
+    ws.cell(ligne, 1, "Objections attendues").font = F_SOUS
+    ligne += 1
+    entetes(ws, ligne, ["Objection", "Réponse"])
+    for objection, reponse in OBJECTIONS:
+        ligne += 1
+        ws.cell(ligne, 1, objection).font = F_TOTAL
+        ws.merge_cells(start_row=ligne, start_column=2, end_row=ligne, end_column=5)
+        ws.cell(ligne, 2, reponse).font = F_TEXTE
+        for col in (1, 2):
+            ws.cell(ligne, col).alignment = ENVELOPPE
+            ws.cell(ligne, col).border = BORDURE
+        ws.row_dimensions[ligne].height = 32
+
+
+def feuille_acteurs(wb):
+    ws = wb.create_sheet("Acteurs")
+    ws["A1"].value, ws["A1"].font = "Acteurs à rencontrer et suivi des contacts", F_TITRE
+    ws["A2"].value, ws["A2"].font = ("Détail des fiches dans docs/acteurs.md. Les colonnes sur fond jaune sont à remplir "
+                                     "au fil des rencontres ; la ligne d'exemple montre le format attendu."), F_NOTE
+    titres = ["Priorité", "Catégorie", "Acteur", "À demander", "Argument à mettre en avant",
+              "Contact", "Date", "Résultat", "Prochaine étape"]
+    entetes(ws, 4, titres, [9, 16, 30, 46, 52, 22, 12, 30, 30])
+    ws.row_dimensions[4].height = 30
+    for i, (prio, cat, acteur, demande, argument) in enumerate(ACTEURS, start=5):
+        valeurs = [prio if prio else "—", cat, acteur, demande, argument]
+        for j, v in enumerate(valeurs, start=1):
+            c = ws.cell(i, j, v)
+            c.font = F_TOTAL if j == 3 else F_TEXTE
+            c.alignment = ENVELOPPE
+            c.border = BORDURE
+        for j in range(6, 10):
+            c = ws.cell(i, j)
+            c.fill, c.font, c.border, c.alignment = FOND_CLE, F_SAISIE, BORDURE, ENVELOPPE
+        ws.cell(i, 7).number_format = "DD/MM/YYYY"
+    exemple = 5 + len(ACTEURS) + 1
+    ws.cell(exemple, 1, "Exemple").font = F_NOTE
+    ws.cell(exemple, 3, "Nom de l'acteur").font = F_NOTE
+    for j, v in zip(range(6, 10), ["Prénom Nom, fonction", "30/09/2026", "Intéressé, attend le dossier",
+                                   "Envoyer la simulation avant le 15/10"]):
+        c = ws.cell(exemple, j, v)
+        c.font, c.alignment = F_NOTE, ENVELOPPE
+    ws.freeze_panes = "D5"
+    ws.auto_filter.ref = f"A4:I{4 + len(ACTEURS)}"
+
+
 def main():
     res = json.loads((ICI / "resultats" / "resultats.json").read_text())
     wb = Workbook()
@@ -481,6 +671,8 @@ def main():
     feuille_scenarios(wb, res)
     feuille_sensibilite(wb, res)
     feuille_vacance(wb, res)
+    feuille_argumentaire(wb)
+    feuille_acteurs(wb)
     for ws in wb.worksheets:
         ws.sheet_view.showGridLines = False
     wb["Hypothèses"]["C16"].comment = Comment(
