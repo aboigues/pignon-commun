@@ -128,10 +128,10 @@
   }
   .arg-item{
     display:grid;
-    grid-template-columns: 60px 1fr;
+    grid-template-columns: 60px minmax(0, 1fr);
     gap: 18px;
   }
-  @media (max-width: 560px){ .arg-item{ grid-template-columns: 38px 1fr; } }
+  @media (max-width: 560px){ .arg-item{ grid-template-columns: 38px minmax(0, 1fr); } }
   .arg-num{
     font-family: var(--font-mono);
     font-size: 1.9rem;
@@ -164,6 +164,43 @@
   }
   .manifesto span{ color: var(--green); }
 
+  /* ---------- comparison ---------- */
+  .data-table.compare{ min-width: 760px; }
+  .data-table.compare th:nth-child(2), .data-table.compare td:nth-child(2){
+    background: color-mix(in srgb, var(--green) 10%, transparent);
+    color: var(--ink);
+  }
+  .data-table.compare th:nth-child(2){ color: var(--green); font-weight:600; }
+  .data-table.compare td:first-child{ font-weight:600; color: var(--ink); }
+  .why-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+    gap: 14px;
+    margin-top: 22px;
+  }
+  .why{
+    background: var(--paper-2);
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--green);
+    border-radius: 4px;
+    padding: 18px 20px;
+  }
+  .why h3{
+    font-family: var(--font-display);
+    font-size: 1.04rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .why p{ font-size: 0.9rem; color: var(--ink-soft); }
+  .honest{
+    margin-top: 26px;
+    border: 1px dashed var(--brass);
+    border-radius: 4px;
+    padding: 18px 20px;
+  }
+  .honest .col-label{ color: var(--brass); }
+  .honest p{ font-size: 0.92rem; color: var(--ink-soft); margin-top: 8px; }
+  .honest p strong{ color: var(--ink); }
   /* ---------- data table ---------- */
   .table-wrap{ overflow-x: auto; margin-top: 16px; }
   .data-table{ width:100%; border-collapse:collapse; font-size:0.88rem; min-width: 480px; }
@@ -600,6 +637,61 @@
     </svg>
   </div>
   <p class="diagram-caption">Défiler horizontalement sur petit écran.</p>
+</section>
+
+<section class="wrap-wide" id="pourquoi-pignon-commun">
+  <span class="eyebrow">Pour l'éco-usager</span>
+  <h2>Pourquoi louer à Pignon commun plutôt qu'ailleurs</h2>
+  <p class="lede">Un loueur classique est lui aussi propriétaire de ses vélos : il a déjà intérêt à ce qu'ils durent. La différence n'est donc pas là. Elle tient à tout ce qui se passe autour du vélo : comment le fabricant est payé, pour quoi le réparateur est rémunéré, qui fixe le prix et où va l'argent qui reste.</p>
+
+  <div class="table-wrap">
+    <table class="data-table compare">
+      <thead><tr><th></th><th>Pignon commun</th><th>Acheter son vélo</th><th>Loueur privé par abonnement</th><th>Location publique (type Véligo)</th></tr></thead>
+      <tbody>
+        <tr><td>Propriétaire du vélo</td><td>La coopérative, dont vous êtes sociétaire</td><td>Vous</td><td>L'entreprise de location</td><td>La collectivité, via un exploitant</td></tr>
+        <tr><td>Ce que vous payez</td><td>Une part fixe et une part au kilomètre : vous payez l'usure que vous causez</td><td>Le vélo d'avance, puis chaque réparation</td><td>Un forfait mensuel</td><td>Un forfait mensuel subventionné</td></tr>
+        <tr><td>Durée</td><td>Engagement minimal de 12 à 24 mois, puis sans limite de durée</td><td>Sans limite</td><td>Selon l'offre</td><td>3 à 12 mois</td></tr>
+        <tr><td>Le fabricant est payé</td><td>Par une rente sur la durée de vie du vélo, avec une prime s'il dure</td><td>À la vente</td><td>À la vente de la flotte au loueur</td><td>À la vente de la flotte</td></tr>
+        <tr><td>Le réparateur est payé</td><td>Un forfait de suivi et une prime de durabilité, jamais une marge sur les pièces</td><td>À chaque intervention</td><td>Par le loueur, selon son organisation</td><td>Par l'exploitant</td></tr>
+        <tr><td>Qui fixe le prix</td><td>La coopérative, sur des coûts publiés poste par poste et révisés chaque année</td><td>Le marché</td><td>L'entreprise</td><td>La collectivité</td></tr>
+        <tr><td>L'excédent va</td><td>Dans la coopérative : baisse du tarif ou réserve commune</td><td>—</td><td>À l'entreprise et à ses actionnaires</td><td>Au service public, financé en partie par l'impôt</td></tr>
+        <tr><td>Suivi du vélo</td><td>Contrôles préventifs selon le kilométrage, historique pièce par pièce consultable</td><td>À vous d'y penser</td><td>Entretien par le loueur</td><td>Entretien par l'exploitant</td></tr>
+        <tr><td>En fin de contrat</td><td>Vous le rendez : il est reconditionné et reloué, ses pièces valides rejoignent le stock commun</td><td>Vous le revendez</td><td>Vous le rendez</td><td>Vous le rendez</td></tr>
+        <tr><td>Vélo-cargo électrique</td><td>Environ 114 €/mois pour 5 500 km par an, tout compris</td><td>3 500 à 7 000 € à l'achat, plus l'entretien et l'assurance</td><td>Selon l'offre</td><td>Jusqu'à 88 €/mois</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="diagram-caption">Défiler horizontalement sur petit écran. Ordres de grandeur : les offres réelles varient d'un loueur et d'une ville à l'autre.</p>
+
+  <div class="why-grid">
+    <div class="why">
+      <h3>Personne ne gagne à ce que votre vélo casse</h3>
+      <p>Ni le fabricant, payé tant que le vélo roule, ni le réparateur, primé sur les kilomètres sans panne, ni la coopérative, qui n'a pas d'actionnaire à rémunérer. Chez un vendeur, une panne est une vente de pièces ; ici, c'est un coût pour tout le monde.</p>
+    </div>
+    <div class="why">
+      <h3>Vous payez ce que vous usez</h3>
+      <p>La part au kilomètre suit l'usure réelle : un mois où vous roulez peu coûte moins cher. Un forfait fixe fait payer autant le petit rouleur que le gros.</p>
+    </div>
+    <div class="why">
+      <h3>Vous avez votre mot à dire sur le prix</h3>
+      <p>Comme sociétaire du collège des éco-usagers, vous votez. Le tarif est construit sur des coûts publiés et révisé chaque année ; si la provision n'est pas consommée, le prix baisse au lieu de gonfler une marge.</p>
+    </div>
+    <div class="why">
+      <h3>Moins d'arrêts, pas d'avance</h3>
+      <p>Pas de vélo-cargo à 5 000 € à financer. L'entretien est planifié avant la panne, la casse prématurée est garantie par le label, et l'atelier est noté sur le délai de remise en service : pour un professionnel, c'est du chiffre d'affaires préservé.</p>
+    </div>
+    <div class="why">
+      <h3>Votre cotisation construit une filière</h3>
+      <p>Elle finance des fabricants qui conçoivent des pièces standard et réparables, et des ateliers de proximité formés à faire durer. Le vélo que vous rendez repart avec son historique pour le locataire suivant.</p>
+    </div>
+  </div>
+
+  <div class="honest">
+    <span class="col-label">Pour qui ce n'est pas le meilleur choix aujourd'hui</span>
+    <p><strong>Un usage léger et occasionnel.</strong> À environ 52 €/mois, louer un vélo classique à Pignon commun coûte à peu près deux fois plus cher que d'en posséder un. L'offre ne se justifie que si le suivi, la garantie et la gouvernance comptent pour vous.</p>
+    <p><strong>Tester le vélo quelques mois.</strong> Une location publique subventionnée reste moins chère pour un essai de courte durée.</p>
+    <p><strong>Le cœur de cible</strong> est donc l'usage intensif, et d'abord les professionnels du vélo-cargo : pour eux, le prix se situe au niveau du coût de possession, avec le service en plus. C'est aussi par eux que la <a href="https://github.com/aboigues/pignon-commun/blob/master/docs/simulation-economique.md" target="_blank" rel="noopener">simulation économique</a> recommande de commencer.</p>
+  </div>
 </section>
 
 <section class="wrap">
